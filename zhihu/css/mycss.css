@@ -1,0 +1,125 @@
+body{
+	font-family:'Helvetica Neue','Microsoft YaHei';
+	font-size:15px;
+	line-height: 1.7;
+	color:#555;
+	height:100%;
+	position:relative;
+
+}
+*{
+	margin:0;
+	padding:0;
+}
+#box{
+	padding:0;
+	min-height: 590px;
+	display:inline-block;
+	vertical-align: middle;
+	white-space: normal;
+	margin:0 auto;
+	width:300px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:-150px;
+	text-align:center;
+
+}
+.header{
+	
+
+}
+.header-h1{
+	margin:0 auto;
+	width:160px;
+	height:74px;
+}
+.jieshao{
+	font-size: 18px;
+	font-weight: 400;
+	margin: 30px 0 20px;
+	line-height: 1;
+}
+.main{
+	width:300px;
+	height:442px;
+}
+.main-ab{
+	width:300px;
+}
+.main-a{
+	font-size: 18px;
+	
+	width:144px;
+	height:44px;
+	margin:0 auto 10px auto;
+	
+}
+.diyi{
+	float:left;
+	height:35px;
+	width:72px;
+}
+.dier{
+	float:right;
+	height:35px;
+	width:72px;
+}
+a{
+	width:4em;
+	color: #555;
+	text-decoration: none;
+	
+}
+input.kuang{
+    margin:0 auto;
+	width:270px;
+	height:20px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-left:-125px;
+	margin-top:-10px;
+	border:0;
+}
+.anniu{
+	width:300px;
+	height:41px;
+	text-align:center;
+	background-color: #0f88eb;
+	color:white;
+	border:1px solid #0f88eb;
+	margin:20px auto 20px auto;
+}
+.kuai{
+	height:45px;
+	width:298px;
+	position:relative;
+	border:1px solid;
+}
+.srk p{
+	font-size: 13px;
+}
+button{
+	display:block;
+	width:300px;
+	height:41px;
+	border:1px solid #0f88eb;
+	background-color:white;
+	color:#0f88eb;
+	margin-top: 30px;
+}
+.footer{
+	position:fixed;
+	bottom: 30px;
+	width:100%;
+	font-size: 12px;
+	line-height: 42px;
+	text-align: center;
+	margin-top: 10px;
+	
+}
+.footer a,.footer span{
+	color:#aebdc9;
+}
