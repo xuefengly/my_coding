@@ -1,0 +1,162 @@
+body{
+	font-size:12px;
+	margin:10px 0;
+	background: #eff4f8;
+	font-weight:normal;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:#183778;
+}
+*{
+	margin:0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+a{
+	color: #07519a;
+	text-decoration: none;
+}
+.main{
+	clear: both;
+}
+.contain{
+	width:960px;
+	margin:0 auto;
+}
+/*复合的样式*/
+.horuzontal,.advert{
+	border: 1px solid #c7d7e4;
+    background: #fff;
+}
+.biaoti{
+	height: 21px;
+	border-bottom: 1px solid #c7d7e4;
+	background: url(../img/tbg.gif) repeat-x center;
+}
+.biaoti p{
+	font-size: 12px;
+	font-weight: bold;
+	color:#183778;
+	padding-left: 8px;
+}
+.left1,.left2,.middle1,.middle2,.middle3,.middle4,.middle5,.middle6,.middle7,.middle8,.right1,.right2,.right3,.right4,.right5
+,.right6,.right7,.right8{
+	margin-bottom: 10px;
+	border: 1px solid #c7d7e4;
+}
+.top,.bottom,.middle ul,.right ul{
+	padding: 8px;
+}
+/*左侧的样式*/
+.left{
+	width:201px;
+	float:left;
+	margin-top:10px;
+}
+.left1{			
+	background: white;
+}
+.left1 .biaoti{
+	width:201px;
+}
+/*这里开始是中间的css*/
+.middle{
+	width:535px;
+	float: left;
+	margin-left: 2px;
+}
+.search{
+	width:535px;
+	height:36px;
+	border: 1px solid #c7d7e4;
+	border-radius: 5px;
+}
+.search1{
+	width:384px;
+	background: url(../img/search_01.gif) no-repeat left;
+	padding-left: 32px;
+	height:36px;
+	float: left;
+	line-height: 36px;
+}
+.search1 strong{
+	font-size: 14px;
+}
+.search1 input,.search1 select{
+	border: 1px solid #c7d7e4;
+}
+.search2{
+	width:108px;
+	background: url(../img/search_03.gif) no-repeat right;
+	padding-right:10px;
+	height:36px;
+	float:right;
+}
+.search2 input{
+	width:105px;
+	height: 24px;
+	border: 0;
+	line-height: 24px;
+	font-size: 14px;
+	background: url(../img/search_btn.gif);
+	margin-top: .4em;
+}
+.middle1{
+	margin-top: 10px;
+}
+.middle5{
+	margin-bottom: 100px;
+}
+.middle table{
+	width:100%;
+}
+.biaoti strong{
+	width:100px;
+	float: left;
+}
+.biaoti em{
+	width:50px;
+	float: right;
+	font-style: normal;
+    font-weight: normal;
+}
+.zuo{
+	width:85%;
+	height: 22px;
+	float: left;
+}
+.you{
+	width:15%;
+	height: 22px;
+	color: #ff0000;
+	float:right;
+}
+
+/*这里开始是右边的css*/
+.right{
+	width:215px;
+	float: right;
+
+}
+.collet{
+	width:215px;
+	height:36px;
+}
+.right1{
+	
+	margin-top: 10px;
+}
+.right li{
+	text-align: center;
+}
+/*广告区域*/
+.x{
+	clear:both;
+}
+.advert{
+	padding: 5px;
+	width:938px;
+	line-height: 180%;
+	margin:10px auto;
+}
