@@ -1,0 +1,24 @@
+/*全局样式*/
+ul{
+	list-style:none;
+}
+/*头部样式*/
+.top{
+	font-size: 12px;
+	width:100%;
+	overflow: hidden;
+}
+.welcome{
+	width:40%;
+	text-align: center;
+	float:left;
+}
+.navigator{
+	width:60%;
+	float:right;
+}
+
+.navigator li{
+	width:80px;
+	display: inline;
+}

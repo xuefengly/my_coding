@@ -1,0 +1,357 @@
+/*全局样式*/
+body{
+	font: 12px '宋体';
+	color:#000;
+}
+ul{
+	list-style:none;
+}
+*{
+	margin:0;
+	padding: 0;	
+}
+a{
+	text-decoration:none;
+	color:black;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+/*.top,.logo-search,nav,hr
+*/
+.contain{
+	width:1000px;
+	margin:0 auto;
+}
+/*头部样式*/
+header{
+	background: #f7f7f7;
+	border-bottom: 1px solid #d8d8d8;
+	height:26px;
+	clear: both;
+}
+.top{
+	font-size: 12px;	
+	overflow: hidden;
+	line-height: 26px;
+}
+.welcome{
+	width:40%;
+	float:left;
+}
+.navigator{
+	width:60%;
+	float:right;
+}
+.navigator ul{
+	float:right;
+}
+.navigator li{
+	display: inline-block;
+	margin-left: 10px;
+}
+.navigator li s{
+	width:10px;
+	height:12px;
+	display: inline-block;
+	background: url(../images/sprite.png);
+
+}
+
+/*主体*/
+/*logo部分*/
+.logo-search{
+	height:100px;
+	overflow: hidden;
+}
+.logo{
+	
+	float:left;
+	margin:30px 0 20px;
+	width:200px;
+	height:55px;
+	background: url(../images/sprite.png) -20px 0;
+	text-indent:-1000em;
+}
+.search{
+	width: 500px;
+	float: right;
+	height: 30px;
+	margin: 30px 0 20px;
+	padding: 10px;
+	border: 1px solid #ccc;
+}
+.search input{
+	height: 28px;
+	width: 400px;
+}
+.search button{
+	width: 90px;
+	height: 32px;
+	border: 1px solid #ccc;
+	background-color: #2F70D0;
+	margin-left: -8px;
+	color:white;
+	cursor: pointer;
+}
+	/*导航*/
+nav{	
+	margin-top: 20px;
+	border-bottom:2px solid #0266a3;
+}
+.nav{
+	overflow: hidden;
+	height:24px;
+}
+.nav li{
+	float: left;
+	font-size: 16px;
+	padding:0px 14px;
+	font-weight: bold;
+	line-height: 26px;
+}
+.nav li a{
+	color:#0266A3;
+}
+.nav li:hover{
+	background-color: #0266A3;
+}
+.nav li:hover a{
+	color:white;
+}
+/*第一部分*/
+.one{
+	overflow: hidden;
+}
+/*左边：列表*/
+.left{
+	float:left;
+	overflow: hidden;
+	background: #EBF0F6;
+	margin:10px;
+	width:200px;
+	height: 240px;
+}
+.left h3{
+	background: #0266a3;
+	color: white;
+	height:30px;
+	line-height: 30px;
+	padding-left: 30px;
+}
+
+.left ul li{
+	height:24px;
+	width:120px;
+	margin: 10px 0 0 10px;
+	font-size: 15px;
+}
+.left ul li s{
+	display: inline-block;
+	background:url(../images/sprite.png) -225px 0;
+	/*margin-top: 10px;*/
+	width:15px;
+	height:13px;
+	vertical-align: middle;
+}
+.left ul li a{
+	line-height: 24px;
+	margin-left: 15px;
+}
+/*中间：广告*/
+.middle{
+	width:540px;
+	float: left;
+	background: yellow;
+	margin:10px;
+	height: 240px;
+}
+/*右边*/
+.right{
+	width:200px;
+	float: right;
+	margin:10px;
+}
+.jct{
+	padding: 5px;
+	border: 1px solid #ccc;
+	height:80px;
+}
+.jct h3{
+	margin-left: 10px;
+}
+.para1{
+	margin:10px 0;
+	clear: both;
+}
+.para1 s{
+	display: inline-block;
+	width:40px;
+	height:40px;
+	background: url(../images/sprite.png) -250px 0;
+	float: left;
+	margin-right: 10px;
+}
+.question{
+	margin-top:30px;
+	text-align: center;
+}
+.phone{
+	margin:10px 0;
+
+}
+.phone s{
+	background: url(../images/sprite.png) -225px -30px;
+	width:14px;
+	height:17px;
+	vertical-align: middle;
+	display: inline-block;
+}
+.question input{
+	width:81px;
+	height:23px;
+	background: url(../images/sprite.png) -295px 0;
+	margin-left: 15px;
+	cursor: pointer;
+}
+/*第二/四部分*/
+.two,.four{
+	overflow: hidden;
+	margin:10px 0;
+}
+.title{
+	background-color: #ecf1f7;
+	border-top: 2px solid #C3D7E4;
+	padding: 5px 0 5px 20px;
+	margin-bottom: 14px;
+}
+.goods{
+	border:1px solid #ccc;
+	padding: 10px;
+	width:760px;
+}
+.product{
+	width:350px;
+	height:150px;
+	padding: 15px;
+}
+.img{
+	border: 1px solid #ccc;
+	margin-bottom: 15px;
+	height:100px;
+	width:95px;
+}
+.buy input{
+	background: #0A84E3;
+	color:white;
+	width:95px;
+	text-align: center;
+	height:24px;
+	border:1px solid #ccc;
+	cursor: pointer;
+
+}
+.img s{
+	display: inline-block;
+	width:90px;
+	height:62px;
+	background: url(../images/sprite.png) 0 -70px;
+	margin:10px 4px 0 3px;
+}
+.explain{
+	margin-left: 15px;
+}
+.gname{
+	font-size: 15px;
+}
+.advantage{
+	font-size: 13px;
+	color:#863E01;
+	padding-top: 15px;
+}
+.price{
+	padding:15px 0;
+}
+.price span{
+	color:red;
+}
+.sale{
+	padding-top:14px;
+}
+.line{
+	border: 1px solid #ccc;
+	clear: both;
+}
+.zixun{
+	margin-left: 8px;
+	border:1px solid #ccc;
+	height: 380px;
+}
+.zixun h3{
+	font-size:13px;
+	height:25px;
+	line-height: 25px;
+	padding-left: 8px;
+	font-weight: normal;
+	border-bottom: 1px solid #ccc;
+}
+.zixun ul{
+	padding: 20px 10px 0 20px;
+}
+.zixun li{
+	line-height:24px;
+	font-size: 13px;
+}
+/*第三部分*/
+.three{
+	clear: both;
+	height:400px;
+	background-color: teal;
+}
+/*footer*/
+.linkers{
+	color:#666;
+	border-bottom:3px solid #0A7EC3;
+}
+.link1{
+	margin-top:30px;
+}
+.link2{
+	margin: 20px 0 30px 60px;
+}
+.about p{
+	text-align: center;
+	margin-top:15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

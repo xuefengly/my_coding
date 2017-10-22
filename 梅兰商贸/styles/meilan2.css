@@ -1,0 +1,101 @@
+/*全局样式*/
+ul{
+	list-style:none;
+}
+*{
+	margin:0;
+	padding: 0;
+	
+}
+.top,.logo-search{
+	width:1000px;
+	margin:0 auto;
+}
+/*头部样式*/
+header{
+	background: #f7f7f7;
+	border-bottom: 1px solid #d8d8d8;
+	height:26px;
+
+}
+.top{
+	font-size: 12px;
+	
+	overflow: hidden;
+	line-height: 26px;
+}
+.welcome{
+	width:50%;
+	float:left;
+}
+.navigator{
+	width:50%;
+	float:right;
+}
+.navigator ul{
+	float:right;
+}
+.navigator li{
+	width:80px;
+	display: inline;
+	margin-left:9px;
+}
+	/*logo部分*/
+.logo-search{
+	height:100px;
+	overflow: hidden;
+}
+.logo{
+	
+	float:left;
+	/*margin:20px;*/
+	width:40%;
+}
+.logo span{
+	width:200px;
+	height:55px;
+	background: url(../images/sprite.png) -20px 0;
+	text-indent:-1000em;
+}
+.search{
+	width:54%;
+	float: right;
+}
+/*为什么背景没有出来？*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
