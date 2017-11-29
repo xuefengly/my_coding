@@ -1,0 +1,26 @@
+1.
+margin可以用百分比;
+2.
+相对定位保留位置，
+绝对定位和固定定位不保留位置
+故给相对定位设置高度
+3.
+input type='text'的border不算入宽/高度
+input type='submit'的border算入宽/高度
+即input类型为button或submit时，width='实际大小'+padding+border;当类型为text或password时，实际的大小=width+padding+border;
+4.
+对于让text输入框和按钮框在同一行无缝隙，用float最OK
+5.
+button的背景是可以修改的
+6.
+scrollTop:滚动的高度，即页面看不到，以向上滚动的高度
+scrollHeight：//所能见到的页面的高度
+7.
+用js获取style.left只能获取行内样式;offsetLeft只读，style.left可读可写
+8.
+debugger断点;
+9.
+addEventListener可以调用多次同一事件不覆盖，还可以选择执行事件冒泡或事件捕获，而on会覆盖
+10.
+用getAttribute()获取自定义属性的值
+11.

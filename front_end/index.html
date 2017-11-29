@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title></title>
+<link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+	<header>
+		<div class="top clearfix">
+			<div class="left logo">
+				<img src="image/logo.png" alt="logo" width='300px' height="60px"/>
+			</div>
+			<div class="left">
+				<form>
+					<input type="text" name="search" class="search left" placeholder="HTML+CSS+Javascript"/>
+					<input type="submit" name="submit" class="submit left" value=""/>
+				</form>
+			</div>
+			<div class="right regsiter">
+				<span><a href="#">注册</a></span>
+				<span><a href="#">登录</a></span>
+				<span><a href="#">设置</a></span>
+			</div>
+		</div>
+	</header>
+	<div class="main">
+			<nav class="clearfix">
+				<ul>
+					<li><a href="#">首页</a></li>
+					<li>HTML
+						<ul>
+							<li><a href="html.html">HTML</a></li>
+							<li><a href="xml.html">XML</a></li>
+							<li><a href="html5.html">HTML5</a></li>
+						</ul>
+					</li>
+					<li>CSS
+						<ul>
+							<li><a href="#">CSS</a></li>
+							<li><a href="#">CSS3</a></li>
+						</ul>
+					</li>
+					<li>Javascript
+						<ul>
+							<li><a href="#">javascript</a></li>
+							<li><a href="#">Jquery</a></li>
+							<li><a href="#">React</a></li>
+							<li><a href="#">Angular</a></li>
+							<li><a href="#">Vue</a></li>
+						</ul>
+					</li>
+					<li>工具
+						<ul>
+							<li><a href="#">Atom</a></li>
+							<li><a href="#">Notepad++</a></li>
+							<li><a href="#">Sublime text3</a></li>
+							<li><a href="#">Photoshop</a></li>
+							<li><a href="#">Chrome</a></li>
+							<li><a href="#">flash</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<div class="content1">
+				<div class="carousel" id="carousel"><!--轮播-->
+					<div id="list">
+						<image src="image/index/lunbo5.jpg" alt="5" index='5' width='550px' height='240px'/>
+						<image src="image/index/lunbo1.jpg" alt="1" index='1' width='550px' height='240px'/>
+						<image src="image/index/lunbo2.jpg" alt="2" index='2' width='550px' height='240px'/>
+						<image src="image/index/lunbo3.jpg" alt="3" index='3' width='550px' height='240px'/>
+						<image src="image/index/lunbo4.jpg" alt="4" index='4' width='550px' height='240px'/>
+						<image src="image/index/lunbo5.jpg" alt="5" index='5' width='550px' height='240px'/>
+						<image src="image/index/lunbo1.jpg" alt="1" index='1' width='550px' height='240px'/>
+					</div>
+					<div id="dots">
+						<span index='1' class="on"></span>
+						<span index='2'></span>
+						<span index='3'></span>
+						<span index='4'></span>
+						<span index='5'></span>
+					</div>
+					<a href="javascript:;" id="prev">&lt;</a>
+					<a href="javascript:;" id="next">&gt;</a>
+				</div>
+				<div class="information">
+					<h2>前端资讯</h2>
+					<div id="information">
+							<ul id="list1">
+							      <li><a href="https://zhuanlan.zhihu.com/p/30950632" target="_blank" title="文字编码的那些事">1.文字编码的那些事</a><span>2017-01-01</span>
+										</li>
+							      <li><a href="https://yq.aliyun.com/articles/225359?utm_content=m_35042" target="_blank" title="前端开发备忘录（合集）">2.前端开发备忘录（合集）</a><span>2017-03-03</span>
+										</li>
+							      <li><a href="http://web.jobbole.com/92875/" target="_blank" title="大前端安全问题（上）">3. 大前端安全问题（上）</a><span>2017-03-03</span>
+										</li>
+
+										<li><a href="https://zhuanlan.zhihu.com/p/29996622" target="_blank" title="浅谈前后端分离与实践（一）">4.浅谈前后端分离与实践（一）</a><span>2017-04-14</span>
+										</li>
+							      <li><a href="https://blog.fundebug.com/2017/11/15/top_10_bugs_and_fixing_method/" target="_blank" title="10个JavaScript常见BUG及修复方法">5.10个JavaScript常见BUG及修复方法</a><span>2017-06-11</span>
+										</li>
+							      <li><a href="https://mp.weixin.qq.com/s?__biz=MzIxOTU1MDg5Ng%3D%3D&mid=2247484306&idx=1&sn=067b9a7a70588cf6150b31552742a18d&chksm=97d8c64da0af4f5bf7f75b6904ff8c9f9d10e514e0c2bdd71d4dbe6cefbcf7553ebf2e65be28" target="_blank" title="前辈经验 | 10+年程序员总结的20+条经验教训">6.前辈经验 | 10+年程序员总结的20+条经验教训</a><span>2017-07-20</span>
+										</li>
+										<li><a href="https://zhuanlan.zhihu.com/p/30560962" target="_blank" title="天天算法 | Medium | 12. 4Sum: 四元组之和">7.天天算法 | Medium | 12. 4Sum: 四元组之和</a><span>2017-08-01</span>
+										</li>
+										<li><a href="http://blog.csdn.net/dev_csdn/article/details/78473400" target="_blank" title="拥抱大前端 盘点那些值得你了解的最佳开发实践">8.拥抱大前端 盘点那些值得你了解的最佳开发实践</a><span>2017-11-01</span>
+										</li>
+							  </ul>
+							  <ul id="list2">
+							  </ul>
+						</div>
+				</div>
+				<script src="javascript/index_information.js">
+				</script>
+			</div>
+			<div class="image">
+				<img src="image/index/01.jpeg" width="100%" height="240px" alt="图片"/>
+			</div>
+			<div class="content2 clearfix">
+				<div class="blog left">
+						<h2>博客专区</h2>
+						<ul>
+							<li><a href="http://www.admin10000.com/document/15648.html" target="_blank">文件各种上传，离不开的表单</a></li>
+							<li><a href="http://www.admin10000.com/document/15660.html" target="_blank">浏览器前端优化</a></li>
+							<li><a href="http://www.html-js.com/qa/376" target="_blank">「HTML5,CSS3」什么是html5开发框架？</a></li>
+							<li><a href="http://www.admin10000.com/document/13624.html" target="_blank">大前端公共知识杂谈</a></li>
+							<li><a href="http://blog.csdn.net/s8233389shaiyuq/article/details/78550692" target="_blank">CSS进阶：提高你前端水平的 4 个技巧</a></li>
+							<li><a href="http://geek.csdn.net/news/detail/244285" target="_blank">CSS3基础知识，学习前端的需要看看</a></li>
+							<li><a href="http://geek.csdn.net/news/detail/244313" target="_blank">精选10款超酷的HTML5/CSS3菜单</a></li>
+							<li><a href="http://blog.csdn.net/lpjishu/article/details/78536542" target="_blank">2017 年你应该学习的编程语言、框架和工具</a></li>
+							<li><a href="http://blog.csdn.net/xjun0812/article/details/50357751" target="_blank">浅谈web前端开发</a></li>
+							<li><a href="http://www.fantizi5.com/gs/lizhi/mem/memooswsn.html" target="_blank">金旭亮：一个普通IT人的十年回顾（上）的故事</a></li>
+						</ul>
+				</div>
+				<div class="guide right">
+						<h2>初学者指南</h2>
+						<ul>
+							<li><a href="http://blog.csdn.net/zuochao_2013/article/details/76761593" target="_blank">前端知识总结</a>
+							</li>
+							<li><a href="https://yq.aliyun.com/articles/225359?utm_content=m_35042" target="_blank">WEB前端学习之路</a>
+							</li>
+							<li><a href="http://blog.csdn.net/j_anson/article/details/53363987" target="_blank">如何学习前端-个人感悟</a></li>
+							<li><a href="https://zhuanlan.zhihu.com/p/29128768" target="_blank">12个前端初学者必学技能</a>
+							</li>
+							<li><a href="http://www.html-js.com/topic/2192" target="_blank">前端必须会的基本知识题目</a>
+							</li>
+							<li><a href="http://blog.csdn.net/u011047006/article/details/52597306" target="_blank">写给想做前端或者已经在做前端的你</a>
+							</li>
+							<li><a href="https://yq.aliyun.com/articles/225359?utm_content=m_35042" target="_blank">观点 | 2017年前端初学者的生存指南</a>
+							</li>
+							<li><a href="https://yq.aliyun.com/articles/225359?utm_content=m_35042" target="_blank">web 前端入坑第一篇：web前端到底是什么？有前途吗</a>
+							</li>
+							<li><a href="http://blog.csdn.net/w3cschoolcn/article/details/52329909" target="_blank">一位资深前端工程师总结的前端学习经验</a>
+							</li>
+							<li><a href="http://blog.csdn.net/xllily_11/article/details/52145172" target="_blank">web前端入坑第二篇：web前端到底怎么学？干货资料！</a>
+							</li>
+							<li><a href="http://blog.csdn.net/onlyforcloud/article/details/46840757" target="_blank">独家分享——大牛教你如何学习Web前端开发</a>
+							</li>
+						</ul>
+				</div>
+	</div>
+	<div class="ad">
+		<img src="image/advertise.jpg" alt="广告" width="960px" height="160px"/>
+	</div>
+	<footer>
+			<div class="friendlink foot">
+				<p><span>友情链接：</span>
+						<a href="#">W3C</a>
+						<a href="#">MDN</a>
+						<a href="#">菜鸟教程</a>
+						<a href="#">慕课网</a>
+						<a href="#">网易云课堂</a>
+				</p>
+			</div>
+			<div class="about foot">
+				<p>
+					<a href="#">关于我们</a>
+					<a href="#">加入我们</a>
+					<a href="#">意见反馈</a>
+				</p>
+			</div>
+			<div class="copyright foot">
+				<p>Copyright @ 2017 www.QDspace.com 前端时空 版权所有 京ICP证xxxxxxxx号</a>
+			</div>
+	</footer>
+</body>
+<script src="javascript/index.js">
+</script>
+</html>
+
+
+
+<!--
+
+<li><a href="http://blog.csdn.net/j_anson/article/details/53363987" target="_blank">如何学习前端-个人感悟</a></li>
+
+<li><a href="https://zhuanlan.zhihu.com/p/29128768" target="_blank">1.12个前端初学者必学技能</a>
+</li>
+
+<li><a href="https://yq.aliyun.com/articles/225359?utm_content=m_35042" target="_blank">1.观点 | 2017年前端初学者的生存指南</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+ -->
+<!--
+废弃代码
+
+
+.image{
+  background: url(../image/01.jpeg);
+  width:100%;*/
+  height:270px;
+  position: relative;
+}
+.image p{
+    position: absolute;
+    font-size: 40px;
+    width:200px;
+    height: 40px;
+    top: 100px;
+    left: 340px;
+    color: #fff;
+}
+
+
+<!<div class="introduce">
+		<ul>
+			<li>前端介绍</li>
+			<li>大前端</li>
+			<li>前端工程师</li>
+			<li>UI设计师</li>
+		</ul>
+</div>
+<span><a href="#">联系电话</a></span>
+<h2>前端介绍</h2>
+<p>前端对于网站来说，通常是指，网站的前台部分包括网站的表现层和结构层。因此前端技术一般分为前端设计和前端开发，前端设计一般可以理解为网站的视觉设计，前端开发则是网站的前台代码实现，包括基本的HTML和CSS以及JavaScript/ajax，现在最新的高级版本HTML5、CSS3，以及SVG等。
+</p>
+
+
+/*.introduce{
+  position: absolute;
+  top:0;
+  left: 0;
+  width:250px;
+  background: #ccc;
+}
+.introduce ul{
+  width: 100%;
+}
+.introduce ul li{
+
+  text-align: center;
+}*/
+
+-->
