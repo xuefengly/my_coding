@@ -1,0 +1,13 @@
+.study{
+  margin: 10px 0;
+}
+.study p{
+  text-indent: 0!important;
+  padding: 5px 0;
+}
+.study p:nth-child(2n) a{
+  color:#2d11e3;
+}
+.study p:nth-child(2n+1) a{
+  color:#8adc83;
+}

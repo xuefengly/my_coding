@@ -1,0 +1,16 @@
+.text p{
+  line-height: 20px;
+}
+.example{
+  margin: 10px 0;
+}
+.link a{
+  display: block;
+  padding: 5px 0;
+}
+.mdn{
+  color:blue;
+}
+.mkw{
+  color:orangered;
+}

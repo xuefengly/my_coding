@@ -1,3 +1,5 @@
+
+//图片轮播（特效1）
 var carousel = document.getElementById('carousel');
 var list = document.getElementById('list');
 var dots = document.getElementById('dots');
@@ -7,12 +9,11 @@ var next = document.getElementById('next');
 var index = 1;
 var timer;
 var animated=false;
-// console.log(spans[index]);
 //切换函数
 function animation(offset){
   animated=true;
   list.style.left = list.offsetLeft + 'px';
-  console.log(list.style.left);
+  // console.log(list.style.left);
   var newLeft = parseInt(list.style.left)+offset;//点击切换后的offsetLeft
   // console.log(newLeft);
   var time = 550;//总时间
@@ -116,3 +117,30 @@ prev.addEventListener('click',function(){
   }
   dotsPlay();
 });
+
+// welcome伸缩（特效2）
+var welcome = document.getElementById('welcome');
+var h=0;
+window.onload = function(){
+  addH();
+  setTimeout(decH,3000);
+};
+function addH(){//展开函数
+  if(h<400){
+    h+=5;
+    welcome.style.height = h+'px';
+  }else{
+    return;
+  }
+  setTimeout(addH,20);
+}
+function decH(){//收起函数
+  if(h>0){
+    h-=5;
+    welcome.style.height = h+'px';
+  }else{
+    welcome.style.display = 'none';
+    return;
+  }
+  setTimeout(decH,20);
+}

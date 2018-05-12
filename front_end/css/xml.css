@@ -1,40 +1,12 @@
-*{
-  margin: 0;
-  padding: 0;
-}
-a{
-  text-decoration: none;
-}
-ul{
-  list-style: none;
-}
-body{
-  font-family: '楷体';
-  width:960px;
-  margin: 0 auto;
-  overflow: hidden;
-}
-/*侧边栏*/
-.sidebar{
-  width:200px;
-  float: left;
-}
-.list li{
-  /*height: 32px;*/
-  background: #2286CD;
-  line-height: 32px;
-}
+
 /*内容*/
-.container{
-  width:660px;
-  float: right;
-}
-.container p{
-  text-indent: 2em;
-}
 .example{
   margin: 20px 0;
 }
-.container div a{
-  color:#278261;
+.link a{
+  padding: 10px;
+  display: block;
+}
+.ibm{
+  color:#4d2d2d;
 }
