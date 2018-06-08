@@ -1,0 +1,160 @@
+@charset "UTF-8";
+.bigbanner{
+	position: relative;
+}
+.bigbanner a{
+	position: absolute;
+	width:100%;
+	top:0;
+	left: 0;
+	height: 604px;
+	background: url(../images/banner.jpg) no-repeat top center;
+}
+.main {
+    position: relative;/*与binbanner同定位,层级优先，可覆盖在bigbanner上*/
+}
+/*轮播*/
+.slider {
+	width:730px;
+	height: 453px;
+	margin: 12px 0 0 220px;
+	float: left;
+	position: relative;	
+}
+.circle{
+	position: absolute;
+	bottom: 8px;
+	left: 50%;
+	margin-left: -66px;
+}
+.circle li{
+	width:18px;
+	height: 18px;
+	float: left;
+	margin:0 2px;
+	border-radius: 50%;
+	background-color: #3e3e3e;
+	text-align: center;
+	line-height: 18px;
+	cursor: pointer;
+	color:#fff;
+}
+.circle li.current {
+	background-color: #b61b1f;
+}
+.arrow-left, .arrow-right {
+	position: absolute;
+	width: 28px;
+	height: 62px;
+	color: #fff;
+	top:50%;
+	margin-top: -31px;
+	background: rgba(0,0,0,0.2);
+	font: 500 18px/62px "SimSun";
+	text-align: center;
+}
+.arrow-left {
+	left: 0;
+}
+.arrow-right {
+	right: 0;
+}
+.arrow a:hover {
+	background: rgba(0,0,0,0.4);
+}
+.news {
+	width:248px;
+	height: 451px;
+	border: 1px solid #e4e4e4;
+	margin: 12px 1px 0 0;
+	float: right;
+}
+
+.jd-news {
+	height: 200px;
+	border-bottom: 1px dashed #e4e4e4;
+}
+.jd-news .dt,.lifeservice .dt{
+	height: 43px;
+	border-bottom: 1px dotted #e8e8e7;
+}
+.jd-news .dt h3,.lifeservice .dt h3{
+	float: left;
+	font: 14px/43px 'microsoft yahei';
+	color: #666;
+	padding-left: 15px;
+}
+.jd-news .dt a{
+	float: right;
+	font: 13px/43px 'microsoft yahei';
+	margin-right: 15px;
+}
+.jd-news .dd ul {
+	padding: 8px 0 0 15px;
+}
+.jd-news .dd ul li {
+	line-height: 28px;
+}
+.jd-news .dd ul span {
+	margin-right: 5px;
+	font-weight: bold;
+}
+.lifeservice {
+	height: 251px;
+	width: 248px;
+	overflow: hidden;/*切除溢出的li部分*/
+}
+.lifeservice ul {
+	width:252px;/*比父盒子.lifeservice大，使4个li在一行*/
+}
+.lifeservice li {
+	width: 62px;
+	height: 70px;
+	border: 1px solid #e4e4e4;
+	float: left;
+	margin-left:-1px;
+	border-top: 0;
+	position: relative;
+}
+.lifeservice a{
+	height: 70px;
+	display: block;
+	padding-top: 44px;
+	text-align: center;
+}
+.lifeservice i{
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	top:12px;
+	left: 18px;
+	background: url(../images/icon_lifeserv.png) no-repeat right top;
+}
+.lifeservice-icon2 a i{
+	background-position: right -25px;
+}
+.lifeservice .song {
+	background: url(../images/song.png) no-repeat right top;
+}
+/*活动*/
+.activity {
+	position: relative;
+}
+.night {
+	margin: 15px 0 28px 0;
+}
+.night-left {
+	float: left;
+}
+.night-right {
+	width: 1000px;
+	height: 160px;
+	float: right;
+}
+.night-right ul{
+	width:400%;
+}
+.night-right ul li{
+	float: left;
+	margin-left: 1px;
+}
