@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单方法</title>
+</head>
+<body>
+	自动获得焦点：
+	<input type="text" id="txt">
+	鼠标经过选择表单
+	<input type="text" id="select">
+</body>
+<script type="text/javascript">
+	//自动获得焦点
+	var txt = document.getElementById('txt');
+	txt.focus();
+	//鼠标经过全选文本框内容，获得焦点时不全选
+	var select = document.getElementById('select');
+	select.onmouseover = function(){
+		this.select();
+	}
+</script>
+</html>

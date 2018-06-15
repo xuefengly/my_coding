@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>打印金字塔直线</title>
+	<style>
+		.main{
+			margin:20px auto;
+		}
+		h1{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="main" id="text">
+		<h1>打印金字塔直线</h1>
+		<script type="text/javascript">
+			var text = document.getElementById('text');
+			for(var i=2;i<=100;i=i+2){
+				txt = "<hr width="+i+"%>";
+				//width=""引号可不写
+				document.write(txt);
+			}
+		</script>
+	</div>
+</body>
+
+</html>

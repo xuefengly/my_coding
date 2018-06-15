@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单验证</title>
+	<style>
+		.form {
+			margin:100px auto;
+			width:600px;
+		}
+		input{
+			height: 24px;
+			line-height: 24px;
+			padding: 1px 0 1px 8px;
+		}
+		span {
+			background: #eee;
+			color:#999;
+			padding-left: 20px;
+			display: inline-block;
+			width: 200px;
+			height: 28px;
+			line-height: 28px;
+			border: 1px solid #eee;
+		}
+		.right {
+			color:#5fff5e;
+			background: url(images/right.png) no-repeat #dfffdf 4px 7px;
+			border: 1px solid #acffac;
+		}
+		.wrong {
+			background: url(images/wrong.png) no-repeat #ffded0 4px 7px;
+			color: #ff6b39;
+			border: 1px solid #ffac91;
+		}
+	</style>
+</head>
+<body>
+	<div class="form">
+		<label>语文成绩:</label>
+		<input type="text" name="grade" id="grade" />
+		<span id="test">请输入成绩</span>
+	</div>
+</body>
+<script type="text/javascript">
+	function $(id){
+		return document.getElementById(id);
+	}
+	$('grade').onblur = function(){
+		var txt = this.value;//总是指向事件的调用者,此处指向$('grade')
+		// console.log(txt);
+		if(txt == ''){
+			$('test').className = 'wrong';
+			$('test').innerHTML = '内容不能为空';
+		}else if(txt < 0 || txt > 150){
+			$('test').className = 'wrong';
+			$('test').innerHTML = '请输入合理范围0~150';
+		}else if(isNaN(txt)){//isNaN()判断是否是数字
+			$('test').className = 'wrong';
+			$('test').innerHTML = '格式错误，请输入数字';
+		}else{
+			$('test').className = 'right';
+			$('test').innerHTML = '输入正确';
+		}
+	}
+</script>
+</html>
