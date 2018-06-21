@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阶乘</title>
+	<style type="text/css">
+		p {
+			text-align: center;
+		}
+		.main{
+			margin:100px auto;
+			width: 400px;
+		}
+	</style>
+</head>
+<body>
+	<p>编写一个程序，用户输入一个数，可以求出这个数的阶乘</p>
+	<div class="main">
+		<label>请输入数字：</label>
+		<input type="text" id="txt" name=""><br/>
+		<input type="button" id="calculate" value="计算"><br/>
+		<label>它的阶乘是：</label>
+		<input type="text" id="num" name="">
+	</div>
+</body>
+<script type="text/javascript">
+	var txt = document.getElementById('txt');
+	var calculate = document.getElementById('calculate');
+	var num = document.getElementById('num');
+	calculate.onclick = function(){
+		old_num = txt.value;
+		num.value = cal(old_num);
+	}
+	function cal(num){
+		number =1;
+		for(var i=num;i>0;i--){
+			number *= i;
+		}
+		return number;
+	}
+</script>
+</html>

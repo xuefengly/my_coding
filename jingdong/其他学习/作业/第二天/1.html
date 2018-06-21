@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业1</title>
+	<style type="text/css">
+		p {
+			text-align: center;
+		}
+		.main{
+			margin:100px auto;
+			width: 400px;
+		}
+	</style>
+</head>
+<body>
+	<p>要求：编写一个程序，计算增加后的工资。要求工龄满5，增加20%工资；若2—4，则增加15%；若小于2，则增加10%工资。</p>
+	<div class="main">
+		<label>原工资：</label>
+		<input type="text" id="old_salary"><br/>
+		<label>工龄：</label>
+		<input type="text" id="num"><br/>
+		<input type="button" id="calculate" value="计算"><br/>
+		<label>增加后的工资：</label>
+		<input type="text" id="new_salary">
+	</div>
+</body>
+<script type="text/javascript">
+	function $(id){
+		var name = document.getElementById(id);
+		return name;
+	}
+	old_salary = $('old_salary');
+	num = $('num');
+	calculate = $('calculate');
+	new_salary = $('new_salary')
+	calculate.onclick = function(){
+		if(num>=5){
+			new_salary.value = old_salary.value*1.2;
+		}else if(num>=2 && num<=4){
+			new_salary.value = old_salary.value*1.15;
+		}else{
+			new_salary.value = old_salary.value*1.1;
+		}
+	}
+	//注意点：value值不要用变量保存，要实时获取或赋值
+</script>
+</html>

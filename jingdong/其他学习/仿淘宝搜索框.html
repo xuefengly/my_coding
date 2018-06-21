@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>仿淘宝搜索框</title>
+	<style>
+		.search {
+			width:300px;
+			height: 50px;
+			margin:100px auto;
+			position: relative;
+		}
+		.search input {
+			width:200px;
+			height: 25px;
+		}
+		.search label {
+			font-size: 12px;
+			color: #ccc;
+			position: absolute;
+			top:8px;
+			left: 10px;
+			cursor: text;/*光标为文本*/
+		}
+	</style>
+</head>
+<body>
+	<!-- 效果：点击input输入框时默认文本不消失，输入内容则默认文本隐藏，当input输入框为空时，默认文本显示 -->
+	<div class="search">
+		<input type="text" id="txt"/>
+		<label for="txt" id="message">必败的国际大牌</label>
+	</div>
+</body>
+<script type="text/javascript">
+	function $(id){
+		return document.getElementById(id);
+	}
+	var txt = $("txt");
+	var message = $("message");
+	txt.oninput = function(){
+		if(txt.value == ''){
+			message.style.display = 'block';
+		}else{
+			message.style.display = 'none';
+		}
+	}
+	//兼容IE678
+	txt.onpropertychange = function(){
+		if(txt.value == ''){
+			message.style.display = 'block';
+		}else{
+			message.style.display = 'none';
+		}
+	}
+	//也可以合并写：
+	// txt.oninput = txt.onpropertychange = function(){
+	// 	if(txt.value == ''){
+	// 		message.style.display = 'block';
+	// 	}else{
+	// 		message.style.display = 'none';
+	// 	}
+	// }
+	//可直接使用placeholder属性，不必如此麻烦
+</script>
+</html>

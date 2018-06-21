@@ -241,7 +241,7 @@
 				</ul>
 			</div>
 		</div>
-		<div class="lifeservice">
+		<div class="lifeservice" id="lifeservice-icon">
 			<div class="dt">
 				<h3>生活服务</h3>
 			</div>
@@ -501,4 +501,14 @@
 		box.style.display = 'none';
 	}
 </script>
+<!-- 遍历图标展示 -->
+<script type="text/javascript">
+var life_icons = document.getElementById('lifeservice-icon');
+var icons = life_icons.getElementsByTagName('i');
+for(var i=0;i<icons.length;i++){
+	icons[i].style.backgroundPosition = "0 "+(-25*i)+"px";
+}
+</script>
+
+<script type="text/javascript" src="js/index.js"></script>
 </html>

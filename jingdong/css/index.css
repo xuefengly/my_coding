@@ -160,7 +160,7 @@
 	position: absolute;
 	top:12px;
 	left: 18px;
-	background: url(../images/icon_lifeserv.png) no-repeat right top;
+	background: url(../images/spriteicon.png) no-repeat right top;
 }
 .lifeservice-icon2 a i{
 	background-position: right -25px;

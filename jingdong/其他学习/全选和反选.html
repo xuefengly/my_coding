@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全选和反选</title>
+</head>
+<body>
+	<div id="top">
+		<input type="button" name="btn" value="全选">
+		<input type="button" name="btn" value="全不选">
+		<input type="button" name="btn" value="反选">
+	</div>
+	<br/>
+	<div id="bottom">
+		选项：<input type="checkbox"><br/>
+		选项：<input type="checkbox"><br/>
+		选项：<input type="checkbox"><br/>
+		选项：<input type="checkbox"><br/>
+		选项：<input type="checkbox"><br/>
+		选项：<input type="checkbox"><br/>
+		选项：<input type="checkbox"><br/>
+		选项：<input type="checkbox"><br/>
+		选项：<input type="checkbox"><br/>
+		选项：<input type="checkbox"><br/>
+		选项：<input type="checkbox"><br/>
+	</div>
+</body>
+<script type="text/javascript">
+	var tops = document.getElementById('top');
+	var bottom = document.getElementById('bottom');
+	var btns = tops.getElementsByTagName('input');
+	var inputs = bottom.getElementsByTagName('input');
+	// btns[0].onclick = function(){
+	// 	for(var i=0;i<inputs.length;i++){
+	// 		inputs[i].checked = true;//选中
+	// 	}
+	// }
+	// btns[1].onclick = function(){
+	// 	for(var i=0;i<inputs.length;i++){
+	// 		inputs[i].checked = false;
+	// 	}
+	// }
+	// btns[2].onclick = function(){
+	// 	for(var i=0;i<inputs.length;i++){
+	// 		if(inputs[i].checked == true){
+	// 			inputs[i].checked = false;
+	// 		}else{
+	// 			inputs[i].checked = true;
+	// 		}
+	// 	}
+	// }
+	// 用封装函数简化
+		function all(flag){
+			for(var i=0;i<inputs.length;i++){
+				inputs[i].checked = flag;
+			}
+		}
+		//注意:不能直接btns[0].onclick = all(true);因为函数名(实参)默认执行函数，即没有点击该函数也执行了
+		btns[0].onclick = function(){
+			all(true);
+		}
+		btns[1].onclick = function(){
+			all(false);
+		}
+	//使用三元运算符简化
+	btns[2].onclick = function(){
+		for(var i=0;i<inputs.length;i++){
+			inputs[i].checked ? inputs[i].checked = false:inputs[i].checked = true;
+		}
+	}
+
+</script>
+</html>
