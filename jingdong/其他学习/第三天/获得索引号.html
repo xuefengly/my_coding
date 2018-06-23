@@ -1,0 +1,42 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>排他思想</title>
+  <style type="text/css">
+	.current {
+		background-color: #678989;
+	}
+  </style>
+</head>
+<body>
+  <div id="content">
+	<button>排他思想</button>
+	<button>排他思想</button>
+	<button>排他思想</button>
+	<button>排他思想</button>
+	<button>排他思想</button>
+	<button>排他思想</button>
+	<button>排他思想</button>
+  </div>
+</body>
+<script type="text/javascript">
+	var content = document.getElementById('content');
+	btns = content.getElementsByTagName('button');
+	console.log(btns);
+	for(var i=0;i<btns.length;i++){
+		btns[i].index = i;//自定义索引属性获得当前i值
+		btns[i].onclick = function(){
+			console.log(i);//返回最终值7
+			console.log(this.index);
+			for(var j=0;j<btns.length;j++){
+				console.log(btns[j]);
+				btns[j].className = ' ';//全部类名为空
+			}
+			// console.log(btns[i]);
+			// 此处不能用btns[i]，因为返回undefinded,因此改用this;
+			this.className = 'current';
+		}
+	}
+</script>
+</html>
