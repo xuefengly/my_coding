@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>微博发布</title>
+	<style type="text/css">
+		ul {
+			list-style: none;
+		}
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		a {
+			text-decoration: none;
+		}
+		.main{
+			width:600px;
+			height: auto;
+			margin: 100px auto;
+			padding: 30px 0;
+			border: 1px solid #ccc;
+		}
+		textarea {
+			width: 450px;
+			height: 200px;
+			resize: none;/*防止用户拖动文本框*/
+			padding: 10px 0 0 10px;
+		}
+		.main li {
+			width: 420px;
+			margin-left: 70px;
+			border-bottom: 1px dashed #ccc;
+			height: 30px;
+			line-height: 30px;
+			padding-left: 20px;
+			color: #999;
+			font-size: 13px;
+		}
+		.main li span{
+			float: right;
+		}
+
+		.main li span a{
+			margin-left: 4px;
+			color: #999;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<span>微博发布</span>
+		<textarea></textarea>
+		<button id="btn">发布</button>
+	</div>
+</body>
+<script type="text/javascript">
+	var btn = document.getElementById('btn');
+	var txt = document.getElementsByTagName('textarea')[0];
+	var ul = document.createElement('ul');
+	ul.setAttribute('id','box');//设置id
+	btn.parentNode.appendChild(ul);
+	var box = document.getElementById('box');
+	btn.onclick = function(){
+		if(txt.value == ''){
+			alert('输入不能为空');
+			return false;//终止函数执行
+		}
+		var liElem = document.createElement('li');
+		liElem.innerHTML = txt.value+"<span><a href='javascript:;'>评论</a><a href='javascript:;' class='remove'>删除</a></span>";
+		txt.value = '';//清空文本框
+		var lis = box.children;
+		console.log(lis);
+		if(lis.length == 0){
+			//第一次创建li
+			box.appendChild(liElem);
+		}else{
+			//不是第一次创建
+			box.insertBefore(liElem,box.children[0]);//把创建的li加入到ul的最前面
+		}
+		var as = box.getElementsByClassName('remove');
+		for(var i=0;i<as.length;i++){
+			as[i].onclick = function(){
+				box.removeChild(this.parentNode.parentNode);//删除选择的评论
+			}
+		}
+	}
+</script>
+</html>

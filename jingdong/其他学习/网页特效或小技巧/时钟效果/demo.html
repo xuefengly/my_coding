@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>时钟</title>
+	<style>
+		.box{
+			width: 600px;
+			height: 600px;
+			margin: 40px auto;
+			position: relative;
+			background: url(images/clock.jpg) no-repeat;
+		}
+		.box div {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.h {
+			background: url(images/hour.png) no-repeat center center;/*居中显示不重铺*/
+		}
+		.m {
+			background: url(images/minute.png) no-repeat center center;
+		}
+		.s {
+			background: url(images/second.png) no-repeat center center;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="h" id="hour"></div>
+		<div class="m" id="min"></div>
+		<div class="s" id="second"></div>
+	</div>
+</body>
+<script type="text/javascript">
+	var hour = document.getElementById('hour');
+	var min = document.getElementById('min');
+	var second = document.getElementById('second');
+	//设置定时器
+	setInterval(clock,1000);
+	function clock(){
+		var date = new Date()
+		var h = date.getHours();
+		var m = date.getMinutes();
+		var s = date.getSeconds();
+		var ms = date.getMilliseconds();
+		// console.log(h,m,s,ms);
+	}
+</script>
+</html>

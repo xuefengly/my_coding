@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>兼容之getClass</title>
+	<style type="text/css">
+		div {
+			width:100px;
+			height: 40px;
+			margin:10px auto;
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div class="demo"></div>
+	<div></div>
+	<div></div>
+	<div id="haha">
+		<div class="demo test"></div>
+		<div class="demo"></div>
+		<div></div>
+	</div>
+	
+</body>
+<script type="text/javascript">
+	//为兼容IE678，封装自己的getClass函数,效果仿照getElementsByClassName()
+	//考虑的多个类名的情况，和获取特定id下的类名，再次改进
+	function getClass(classname,id){
+		//判断是否支持getELementsByClassName()
+		if(document.getElementsByClassName){
+			//支持
+			//如果有id限制
+			if(id){
+				var elemID = document.getElementById(id);
+				return elemID.getElementsByClassName(classname);
+			}else{
+				return document.getElementsByClassName(classname);
+			}
+		}else{
+			//不支持
+			var arr = [];//用于含类名的标签
+			if(id){
+				//如果有id限制
+				var elemID = document.getElementById(id);
+				//获取含该id元素下的所有标签
+				var boxs = elemID.getElemnetsByTagName('*');
+				//遍历所有标签是否匹配类名
+				for(var i=0;i<boxs.length;i++){
+					//考虑多个类名情况，把元素的类名转换成数组
+					var txtArr = boxs[i].classname.split(' ');
+					console.log(txtArr);
+					for(var j=0;j<txtArr.length;j++){
+						if(txtArr[j] == classname){
+							//如果有匹配类名,把标签加入arr数组4
+							arr.push(boxs[i]);
+							
+						}
+					}
+				}
+			}else{
+				//没有id
+				var boxs = document.getElemnetsByTagName('*');
+				//遍历所有标签是否匹配类名
+				for(var i=0;i<boxs.length;i++){
+					//考虑多个类名情况，把元素的类名转换成数组
+					var txtArr = boxs[i].classname.split(' ');
+					for(var j=0;j<txtArr.length;j++){
+						if(txtArr[j] == classname){
+							//如果有匹配类名,把标签加入arr数组
+							arr.push(boxs[i]);
+							
+						}
+					}
+				}
+			}
+		}
+		return arr;
+	}
+	console.log(getClass('demo','haha'));
+</script>
+</html>

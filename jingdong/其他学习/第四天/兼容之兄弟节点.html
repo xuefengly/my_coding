@@ -1,0 +1,68 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style type="text/css">
+  	
+  </style>
+</head>
+<body>
+	<ul>
+		<li> 55565</li>
+		<li> 55565</li>
+		<li> 55565</li>
+		<li id="one"> 55565</li>
+		<li> 55565</li>
+		<li> 55565</li>
+		<li> 55565</li>
+		<li> 55565</li>
+	</ul>
+</body>
+<script type="text/javascript">
+	var elem = document.getElementById('one');
+	console.log(elem);
+	//nextSibling仅IE678支持,nextElementSibling其他浏览器支持
+	// var next = elem.nextSibling || elem.nextElementSibling;
+	// console.log(next);
+	var next = elem.nextElementSibling || elem.nextSibling;
+	//注意elem.nextElementSibling先写,不然报错
+	var previous = elem.previousElementSibling || elem.previousSibling;
+	next.style.backgroundColor = 'red';
+	previous.style.backgroundColor = 'purple';
+</script>
+</html>
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style type="text/css">
+  	
+  </style>
+</head>
+<body>
+	<ul>
+		<li> 55565</li>
+		<li> 55565</li>
+		<li> 55565</li>
+		<li id="one"> 55565</li>
+		<li> 55565</li>
+		<li> 55565</li>
+		<li> 55565</li>
+		<li> 55565</li>
+	</ul>
+</body>
+<script type="text/javascript">
+	var elem = document.getElementById('one');
+	console.log(elem);
+	//nextSibling仅IE678支持,nextElementSibling其他浏览器支持
+	// var next = elem.nextSibling || elem.nextElementSibling;
+	// console.log(next);
+	var next = elem.nextElementSibling || elem.nextSibling;
+	//注意elem.nextElementSibling先写,不然报错
+	var previous = elem.previousElementSibling || elem.previousSibling;
+	next.style.backgroundColor = 'red';
+	previous.style.backgroundColor = 'purple';
+</script>
+</html>

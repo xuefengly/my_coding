@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#box div{
+			width: 300px;
+			height: 300px;
+			text-align: center;
+			line-height: 300px;
+			margin: 100px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var box = document.getElementById('box');
+	var child = box.children;
+	var date = new Date();
+	var hours = date.getHours();
+	if(hours < 9){
+		child[0].innerHTML = '早上好，新的一天新的开始';
+		child[0].style.backgroundColor = 'red';
+	}else if(hours < 12){
+		child[0].innerHTML = '上午好，好好学习';
+		child[0].style.backgroundColor = 'blue';
+	}else if(hours < 18){
+		child[0].innerHTML = '下午好，天天向上';
+		child[0].style.backgroundColor = 'pink';
+	}else if(hours <= 23){
+		child[0].innerHTML = '晚上好，好好复习今天的功课';
+		child[0].style.backgroundColor = '#ccc';
+	}
+</script>
+</html>

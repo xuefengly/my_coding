@@ -57,7 +57,7 @@
 					<i><s>◇</s></i>
 				</li>
 			</ul>
-			
+
 
 		</div>
 	</div>
@@ -92,7 +92,7 @@
 		<span class="icon1"></span>
 		<span class="icon2">></span>
 		<span class="icon3">3</span>
-	</div> 
+	</div>
 	<div class="hotwords">
 		<a href="#" class="col-red">11月11天</a>
 		<a href="#">11.11秒杀</a>
@@ -201,16 +201,16 @@
 	<div class="slider" id="slider">
 		<a href="#">
 			<img src="images/slider/1.jpg" alt="" id="pic" />
+			<img src="images/slider/2.jpg" alt="" id="pic" />
+			<img src="images/slider/3.jpg" alt="" id="pic" />
+			<img src="images/slider/4.jpg" alt="" id="pic" />
+			<img src="images/slider/5.jpg" alt="" id="pic" />
+			<img src="images/slider/6.jpg" alt="" id="pic" />
 		</a>
 		<ul class="circle" id="circle">
-			<li>1</li>
-			<li>2</li>
-			<li class="current">3</li>
-			<li>4</li>
-			<li>5</li>
-			<li>6</li>
+
 		</ul>
-		
+
 		<div class="arrow" id="arrow"><!-- 左右两个小三角 -->
 			<a href="javascript:;" class="arrow-left">
 				&lt;
@@ -219,7 +219,7 @@
 				&gt;
 			</a>
 		</div>
-		
+
 	</div>
 	<div class="news">
 		<div class="jd-news">
@@ -409,7 +409,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="w other">	
+	<div class="w other">
 		<div class="links">
 			<a href="#">关于我们</a>
 			<span>|</span>
@@ -509,6 +509,17 @@ for(var i=0;i<icons.length;i++){
 	icons[i].style.backgroundPosition = "0 "+(-25*i)+"px";
 }
 </script>
-
+<!-- 动态生成轮播图小圆点 -->
+<script>
+var circle = document.getElementById('circle');
+var slider = document.getElementById('slider');
+var imgs = slider.getElementsByTagName('img');
+// console.log(imgs);
+for(var i=0;i<imgs.length;i++){
+  var lis = document.createElement('li');
+  lis.innerHTML = i+1;//添加小圆点数字
+  circle.appendChild(lis);
+}
+</script>
 <script type="text/javascript" src="js/index.js"></script>
 </html>

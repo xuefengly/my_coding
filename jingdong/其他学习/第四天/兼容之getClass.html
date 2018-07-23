@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>兼容之getClass</title>
+	<style type="text/css">
+		div {
+			width:100px;
+			height: 40px;
+			margin:10px auto;
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div class="demo"></div>
+	<div></div>
+	<div></div>
+	<div class="demo test"></div>
+	<div class="demo"></div>
+	<div></div>
+</body>
+<script type="text/javascript">
+	//为兼容IE678，封装自己的getClass函数,效果仿照getElementsByClassName()
+	var claN = document.getElementsByClassName('demo');
+	console.log(claN);
+	function getClass(classname){
+		//首先判断浏览器是否支持getElementsByTagName
+		if(document.getElementsByClassName){
+			//支持
+			return document.getElementsByClassName(classname);
+		}else{
+			//如果不支持
+			var boxs = document.getElementsByTagName("*");//取得所有元素
+			console.log(boxs);
+			var arr = [];//用于存放使用类名得到的标签
+			for(var i=0;i<boxs.length;i++){
+				console.log(boxs[i].className)
+				if(boxs[i].className == classname){
+					//如果遍历元素的类名和传的参数类名一样，把元素加入数组
+					arr.push(boxs[i]);
+				}
+			}
+			return arr;//返回数组
+		}		
+	}
+	var demo = getClass('demo');
+	console.log(demo.length);
+</script>
+</html>

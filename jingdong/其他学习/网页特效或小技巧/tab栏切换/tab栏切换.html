@@ -1,0 +1,72 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tab栏切换</title>
+  <style type="text/css">
+  	.main {
+  		width: 400px;
+  		margin:100px auto;
+  		border: 1px solid #ccc;
+  	}
+  	.box {
+  		width: 400px;
+  	}
+	.current {
+		background-color: #678989;
+	}
+	.box div {
+		width: 100%;
+		height: 200px;
+		background: #5050ff;
+		display: none;
+		text-align: center;
+		color:#fff;
+	}
+	.box .show {
+		display: block;
+	}
+  </style>
+</head>
+<body>
+	<div class="main">
+		<div id="content">
+			<button>按钮1</button>
+			<button>按钮2</button>
+			<button>按钮3</button>
+			<button>按钮4</button>
+			<button>按钮5</button>
+		 </div>
+		 <div id="box" class="box">
+		  	<div class="show">1号盒子</div>
+		  	<div>2号盒子</div>
+		  	<div>3号盒子</div>
+		  	<div>4号盒子</div>
+		  	<div>5号盒子</div>
+		 </div>
+	</div>
+  
+</body>
+<script type="text/javascript">
+	var btns = document.getElementById('content').getElementsByTagName('button');
+	var boxs = document.getElementById('box').getElementsByTagName('div');
+	console.log(btns);
+	console.log(boxs);
+	for(var i=0;i<btns.length;i++){
+		btns[i].index = i;//获取当前索引
+		btns[i].onmouseover = function(){
+			//清空所有类名
+			for(var j=0;j<btns.length;j++){
+				btns[j].className = '';
+				boxs[j].style.display = 'none';
+
+			}
+			//给当前赋类名
+			this.className = 'current';
+			//显示对应当前索引的盒子
+			boxs[this.index].style.display = 'block';
+		}
+
+	}
+</script>
+</html>

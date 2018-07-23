@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度换肤</title>
+	<style>
+		*{
+			margin:0;
+			padding: 0;
+		}
+		body {
+			background: url(images/1.jpg) top center;
+		}
+		.box{
+			height: 200px;
+			text-align: center;
+			padding-top: 50px;
+			background: rgba(255,255,255,0.3);
+		}
+		.box img{
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="images/1.jpg" alt="" id="pic1" width="150px">
+		<img src="images/2.jpg" alt="" id="pic2" width="150px">
+		<img src="images/3.jpg" alt="" id="pic3" width="150px">
+		<img src="images/4.jpg" alt="" id="pic4" width="150px">
+		<img src="images/5.jpg" alt="" id="pic5" width="150px">
+	</div>
+</body>
+<script type="text/javascript">
+var pic1 = document.getElementById('pic1');
+var pic2 = document.getElementById('pic2');
+var pic3 = document.getElementById('pic3');
+var pic4 = document.getElementById('pic4');
+var pic5 = document.getElementById('pic5');
+pic1.onclick = function(){
+	document.body.style.backgroundImage = 'url(images/1.jpg)';
+}
+pic2.onclick = function(){
+	document.body.style.backgroundImage = 'url(images/2.jpg)';
+}
+pic3.onclick = function(){
+	document.body.style.backgroundImage = 'url(images/3.jpg)';
+}
+pic4.onclick = function(){
+	document.body.style.backgroundImage = 'url(images/4.jpg)';
+}
+pic5.onclick = function(){
+	document.body.style.backgroundImage = 'url(images/5.jpg)';
+}
+</script>
+</html>

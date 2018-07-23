@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时</title>
+	<style type="text/css">
+		#box {
+			width:400px;
+			height: 200px;
+			line-height: 200px;
+			margin: 100px auto;
+			color:red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script type="text/javascript">
+	var box = document.getElementById('box');
+	setInterval(fun,1000);//定时器，每秒执行fun函数一次
+	function fun(){
+		var date = new Date();//得到当前时间
+		// console.log(date);
+		var endTime = new Date("2018/9/1");//设定终点时间
+		// console.log(endTime);
+		var ms = endTime.getTime()-date.getTime();//得到相差毫秒数
+		// console.log(ms);
+		var m = parseInt(ms/(1000*60*60*24*30)%12);//得到距离月份并取整，此处默认每月30天
+		var d = parseInt(ms/(1000*60*60*24)%30);//得到天数
+		var h = parseInt(ms/(1000*60*60)%24);//得到小时数
+		var min = parseInt(ms/(1000*60)%60);//得到分钟数
+		var s = parseInt(ms/1000%60);//得到秒数
+		m<10 ? m='0'+m : m;//如果月份数小于10,显示为0x,大于或等于则为原值
+		d<10 ? d='0'+d : d;
+		h<10 ? h='0'+h : h;
+		min<10 ? min='0'+min : min;
+		s<10 ? s='0'+s : s;
+		box.innerHTML = "距离9月1号开学还有 "+m+"月"+d+"天"+h+"小时"+min+"分"+s+"秒";
+	}
+	
+</script>
+</html>

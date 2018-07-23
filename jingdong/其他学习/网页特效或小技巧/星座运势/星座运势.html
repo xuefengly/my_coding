@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>星座运势</title>
+	<style type="text/css">
+		.box {
+			width: 350px;
+			height: 200px;
+			border: 1px solid #ccc;
+			margin: 100px auto;
+		}
+		.dt {
+			padding: 0 0 0 10px;
+			font-weight: bold;
+		}
+		.mt {
+			overflow: hidden;
+		}
+		.icon {
+			margin: 0 10px;
+			float: left;
+			width: 50px;
+			height: 50px;
+			background: url(images/astroIcon.png) no-repeat;
+		}
+		.menu {
+			float: left;
+		}
+		.yunshi{
+			width: 80px;
+			height: 13px;
+			display: inline-block;
+			background: url(images/yunshi.png) no-repeat;
+			position: relative;
+		}
+		.star{
+			width: 80px;
+			height: 13px;
+			display: inline-block;
+			background: url(images/yunshi.png) no-repeat left bottom;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	  <div class="box">
+		<div class="dt">星座运势</div>
+		<div class="dd">
+			<div class="mt">
+				<div class="icon" id="ico"></div>
+				<div class="menu">
+					<select name="" id="sele">
+						<option value="0">白羊座(03.21-04.19)</option>
+						<option value="1">金牛座(04.20-05.20)</option>
+						<option value="2">双子座(05.21-06.21)</option>
+						<option value="3">巨蟹座(06.22-07.22)</option>
+						<option value="4">狮子座(07.23-08.22)</option>
+						<option value="5">处女座(08.23-09.22)</option>
+						<option value="6">天秤座(09.23-10.23)</option>
+						<option value="7">天蝎座(10.24-11.22)</option>
+						<option value="8">射手座(11.23-12.21)</option>
+						<option value="9">摩羯座(12.22-01.19)</option>
+						<option value="10">0瓶座(01.20-02.18)</option>
+						<option value="11">双鱼座(02.19-03.20)</option> 
+					</select>
+					<div>
+						今日运势：
+						<span class="yunshi">
+							<span class="star" id="star"></span>
+						</span>
+						
+					</div>
+				</div>
+			</div>
+			<div class="md" id="content">心情不好的一天。如果说前段时间一直以来感觉自己被忽视，那么今天更会觉得自己好像被另一半背叛...[详细]</div>
+		</div>
+	  </div>
+</body>
+<script>
+	function $(id){
+		return document.getElementById(id);
+	}
+	console.log($('content').innerHTML);
+	var numArr = [10,9,7,8,9,7,9,8,9,9,7,4,9];//今日运势对应星座分数
+	var txtArr = ["心情不好的一天。如果说前段时间一直以来感觉自己被忽视，那么今天更会觉得自己好像被另一半背叛...[详细]","充满兴趣的一天。或许今天会想要好好娱乐一下。但是要注意不要玩得太疯狂导致精力不足钱包空空哦...[详细]","今天是没什么心思做事的一天。有孩子/宠物的朋友要注意孩子和宠物的健康问题。今天也会觉得呼吸...[详细]","xxx座内容，暂时省略","xxx座内容，暂时省略","xxx座内容，暂时省略","xxx座内容，暂时省略","xxx座内容，暂时省略","xxx座内容，暂时省略","xxx座内容，暂时省略","xxx座内容，暂时省略","xxx座内容，暂时省略"];//对应星座运势分析
+	var sele = $('sele');
+	sele.onchange = function(){
+		$('ico').style.backgroundPosition = "0 "+(-this.value*50)+"px";//更换对应星座图片
+		$('star').style.width = numArr[this.value]*8+"px";
+		//盒子宽80px,分成10分（满分10分）,每份8px;更换对应星星颗数
+		$('content').innerHTML = txtArr[this.value];//更换对应内容
+	}
+</script>
+</html>

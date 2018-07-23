@@ -49,6 +49,7 @@
 	margin: 12px 0 0 220px;
 	float: left;
 	position: relative;	
+	overflow: hidden;
 }
 .circle{
 	position: absolute;

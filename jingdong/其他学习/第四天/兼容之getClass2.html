@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>兼容之getClass</title>
+	<style type="text/css">
+		div {
+			width:100px;
+			height: 40px;
+			margin:10px auto;
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div class="demo"></div>
+	<div></div>
+	<div></div>
+	<div class="demo test"></div>
+	<div class="demo one"></div>
+	<div></div>
+	<div class="demo test one"></div>
+	<div></div>
+</body>
+<script type="text/javascript">
+	//为兼容IE678，封装自己的getClass函数,效果仿照getElementsByClassName()
+	function getClass(classname){
+		//首先判断浏览器是否支持getElementsByTagName
+		if(document.getElementsByClassName){
+			//支持
+			return document.getElementsByClassName(classname);
+		}else{
+			//如果不支持
+			var boxs = document.getElementsByTagName("*");//取得所有元素
+			console.log(boxs);
+			var arr = [];//用于存放使用类名得到的标签
+			
+			
+			for(var i=0;i<boxs.length;i++){
+				//为考虑一个元素有多个类名的情况，把类名(字符串)转换为数组,split用空格符号
+				var txtArr = boxs[i].className.split(' ');
+				console.log(txtArr);
+				//遍历txtArr
+				for(var j=0;j<txtArr.length;j++){
+					if(txtArr[j] == classname){
+						//如果txtArr中存在和参数类名相同的类名,把对应元素加入数组arr
+						arr.push(boxs[i]);
+					}
+				}
+				
+			}
+			return arr;//返回数组
+		}		
+	}
+	console.log(getClass("demo").length);
+</script>
+</html>
