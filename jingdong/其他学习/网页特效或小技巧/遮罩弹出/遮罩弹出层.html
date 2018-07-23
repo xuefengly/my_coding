@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>遮罩弹出层</title>
+	<style>
+		*{/*清除浏览器默认的margin,padding*/
+			margin:0;
+			padding: 0;
+		}
+		body {
+			height: 2000px;/*为了使有滚动条*/
+		}
+		.w {/*版心*/
+			width:960px;
+			margin:0 auto;
+			clear:both;
+		}
+		.top_left {
+			float: left;
+		}
+		.top_right {
+			float: right;
+		}
+		.top_right a {
+			text-decoration: none;
+		    color: orange;
+		    margin-left: 30px;
+		}
+		#mask {
+			width:100%;/*继承父元素宽度*/
+			height: 100%;/*继承父元素高度*/
+			background:rgba(0,0,0,0.2);/*黑色半透明*/
+			position: fixed;/*固定定位，使即使有滚动条一直覆盖全屏**/
+			z-index: 999;/*999的层级，覆盖在页面个元素上方*/
+			display: none;
+		}
+		#box {
+			width:400px;
+			height: 200px;
+			background: #fff;
+			z-index: 1000;/*1000的层级，覆盖在遮罩上方*/
+			position: fixed;/*固定在页面中央*/
+			left: 50%;
+			top:50%;
+			margin:-100px 0 0 -200px;
+			display: none;
+		}
+		#close {
+			width:15px;
+			height: 15px;
+			background: rgba(0,0,0,.3);
+			text-align: center;
+			line-height: 15px;
+			cursor:pointer;
+			float: right;
+		}
+	</style>
+</head>
+<body>
+	<header class="w">
+		<div class="top_left">欢迎来到XXXXXXXXXXXXX</div>
+		<div class="top_right">
+			<a href="javascript:;" id="login">注册</a>
+			<a href="javascript:;">登录</a>
+		</div>
+	</header>
+	<div id="mask"><!-- 遮罩盒子 --></div>
+	<div id="box">
+		<span id="close">x</span>
+	</div>
+	<div class="main w">
+		
+	</div>
+</body>
+<script type="text/javascript">
+	var mask = document.getElementById('mask');
+	var login = document.getElementById('login');
+	var close = document.getElementById('close');
+	var box = document.getElementById('box');
+	login.onclick = function(){
+		mask.style.display = 'block';
+		box.style.display = 'block';
+	}
+	close.onclick = function(){
+		mask.style.display = 'none';
+		box.style.display = 'none';
+	}
+</script>
+</html>
