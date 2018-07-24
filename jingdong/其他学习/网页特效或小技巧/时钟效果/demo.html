@@ -7,7 +7,7 @@
 		.box{
 			width: 600px;
 			height: 600px;
-			margin: 40px auto;
+			margin: 40px auto; 
 			position: relative;
 			background: url(images/clock.jpg) no-repeat;
 		}
@@ -43,12 +43,20 @@
 	//设置定时器
 	setInterval(clock,1000);
 	function clock(){
-		var date = new Date()
-		var h = date.getHours();
-		var m = date.getMinutes();
-		var s = date.getSeconds();
-		var ms = date.getMilliseconds();
+		var date = new Date();
+		var ms = date.getMilliseconds();//得到当前毫秒数
+		var s = date.getSeconds()+ms/1000;//得到当前秒，可能是小数
+		var m = date.getMinutes()+s/60;//得到当前分
+		var h = date.getHours()%12+m/60;//得到当前小时,注意时钟表盘是12进制
+		
 		// console.log(h,m,s,ms);
+		
+		//使用css3属性transform旋转角度
+		second.style.WebkitTransform = 'rotate('+s*6+'deg)';//秒针一圈走60次，每秒6度
+		second.style.MozTransfor = 'rotate('+s*6+'deg)';
+		min.style.WebkitTransform = 'rotate('+m*6+'deg)';//分钟一圈走60次，每分钟6度
+		hour.style.WebkitTransform = 'rotate('+h*30+'deg)';//时针一圈走12次，每小时30度
 	}
+
 </script>
 </html>
