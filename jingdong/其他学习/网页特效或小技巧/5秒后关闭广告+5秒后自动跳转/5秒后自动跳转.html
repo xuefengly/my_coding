@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5秒后自动跳转</title>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script type="text/javascript">
+	var count = 5;
+
+	var box = document.getElementById('box');
+	setTimeout(goIndex,1000);
+	function goIndex(){
+		alert(arguments.callee);
+
+		if(count <0){
+			window.location.href = 'http://www.baidu.com';
+		}else{
+			console.log(box);
+
+			box.innerHTML = "<a href='http://www.baidu.com'>本页面将在"+count+"秒后自动跳转到百度</a>";
+			setTimeout(goIndex,1000);//使用递归循环执行
+		}
+		// console.log(count);
+		count --;
+	}
+</script>
+</html>

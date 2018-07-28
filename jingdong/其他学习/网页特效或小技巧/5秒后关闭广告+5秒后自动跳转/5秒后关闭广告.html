@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5秒后自动关闭广告</title>
+	<style type="text/css">
+		.box {
+			position: relative;
+		}
+		.main {
+			width: 960px;
+			margin: 10px auto;
+		}
+		#left,#right{
+			position: absolute;
+		}
+		#left {
+			left: 0;
+		}
+		#right {
+			right: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<img src="images/1.gif" alt="" id="left" />
+		<img src="images/2.gif" alt="" id="right" />
+		<div class="main">
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+			<p>我是一只小小小小小小鸟</p>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	function $(id){
+		return document.getElementById(id);
+	}
+	function hide(id){
+		$(id).style.display = 'none';
+	}
+	function show(id){
+		$(id).style.display = 'block';
+	}
+	function closeAd(){
+		hide('left');
+		hide('right');
+	}
+	setTimeout(closeAd,5000);
+</script>
+</html>
