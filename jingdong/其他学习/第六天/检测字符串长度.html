@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>检测字符串长度</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	//一个汉族占两个字节，length不能判断
+	var txt = 'what are you saying 啊哈';
+	console.log(txt.length);//22
+	function getStringLength(str){
+		var len = 0;//用来存储字符串长度
+		var c = 0;//用来每一个存储字符串编码
+		for(var i=0;i<str.length;i++){
+			c = txt.charCodeAt(i);
+			if(c>=0 && c<=127){
+				// 在ASCII中为字符,占一个字节
+				len++;
+			}else{
+				//是汉字，占两个字节
+				len += 2;
+			}
+		}
+		return len;
+	}
+	console.log(getStringLength(txt));
+</script>
+</html>

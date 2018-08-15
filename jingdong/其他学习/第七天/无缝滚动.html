@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无缝滚动</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		img {
+			vertical-align: top;/*清除图片底部3px的间距*/
+		}
+		.box {
+			width:600px;
+			height: 200px;
+			margin: 100px auto;
+			/*background-color: pink;*/
+			position: relative;
+			/*overflow: auto;出现滚动条*/
+			overflow: hidden;
+		}
+		.box ul{
+			width: 400%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.box ul li{
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div class="box" id="scroll">
+		<ul>
+			<li><img src="images/01.jpg" alt=""/></li>
+			<li><img src="images/02.jpg" alt=""/></li>
+			<li><img src="images/03.jpg" alt=""/></li>
+			<li><img src="images/04.jpg" alt=""/></li>
+			<li><img src="images/01.jpg" alt=""/></li>
+			<li><img src="images/02.jpg" alt=""/></li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+	var scroll = document.getElementById('scroll');
+	var ul = scroll.getElementsByTagName('ul')[0];
+	//也可以使用children获取ul
+	var num = 0;//用于存储left值
+	var timer = null;//定时器名称
+	timer = setInterval(autoPlay,25);//设置定时器
+	function autoPlay(){
+		num -=3;
+		// if(num <= -1200){
+		// 	ul.style.left = 0;
+		// 	num = 0;
+		// }
+		num <= -1200 ? num =0 : num;//用三目运算符代替if判断
+		ul.style.left = num + 'px';//改变ul盒子的left值
+	}
+	scroll.onmouseover = function(){
+		clearInterval(timer);//鼠标移动到时清除定时器
+	}
+	scroll.onmouseout = function(){
+		timer = setInterval(autoPlay,25);//鼠标离开开启定时器
+	}
+
+</script>
+</html>

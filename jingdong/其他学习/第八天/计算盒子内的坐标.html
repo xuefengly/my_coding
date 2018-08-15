@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>计算盒子内的坐标</title>
+	<style>
+		.box {
+			width: 400px;
+			height: 500px;
+			margin: 100px 200px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="box" id="box">
+
+	</div>
+</body>
+<script>
+var box = document.getElementById('box');
+box.onmousemove = function(event){
+	var event = event || window.event;
+	var x = event.clientX - this.offsetLeft;//点击点对于网页左侧距离-盒子对于网页左侧距离
+	var y = event.clientY - this.offsetTop;
+	// console.log(x);
+	box.innerHTML = "在盒子里的坐标为（"+ x +","+y+")";
+}
+</script>
+</html>

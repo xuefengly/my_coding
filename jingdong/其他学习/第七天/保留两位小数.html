@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>保留两位小数点</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var PI = 3344.141592653;//定义常量
+	var str = PI + '';//转换成字符串
+	var index = str.indexOf('.');//得到小数点的位置
+	console.log(str.slice(0,index+3));//从索引为0(第一个)开始取，取到小数点后两位
+	console.log(str.substr(0,index+3));//从索引为0(第一个)开始取，取小数点的索引加3的个数
+
+	console.log(parseInt(PI*100)/100);//乘100后取整再除以100
+	console.log(PI.toFixed(2));//直接使用toFixed()方法保留两位小数
+</script>
+</html>

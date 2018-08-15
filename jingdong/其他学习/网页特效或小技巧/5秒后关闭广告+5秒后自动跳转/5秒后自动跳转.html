@@ -9,12 +9,10 @@
 </body>
 <script type="text/javascript">
 	var count = 5;
-
 	var box = document.getElementById('box');
 	setTimeout(goIndex,1000);
 	function goIndex(){
 		alert(arguments.callee);
-
 		if(count <0){
 			window.location.href = 'http://www.baidu.com';
 		}else{

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>url编码与解码</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	var url = 'http://www.baidu.com?id=kk';
+	var enUrl = encodeURIComponent(url);
+	var deUrl = decodeURIComponent(url);
+	console.log(enUrl);//编码http%3A%2F%2Fwww.baidu.com%3Fid%3Dkk
+	console.log(deUrl);//解码http://www.baidu.com?id=kk
+</script>
+</html>

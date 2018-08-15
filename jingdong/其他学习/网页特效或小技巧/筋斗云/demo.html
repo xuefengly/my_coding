@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>筋斗云</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			background-color: #ccc;
+		}
+		a{
+			text-decoration: none;
+		}
+		.box {
+			width: 600px;
+			height: 42px;
+			background:url(images/rss.png) no-repeat right center #fff;
+			margin: 100px auto;
+			border-radius: 5px;
+			position: relative;
+		}
+		.cloud {
+			width: 83px;
+			height: 42px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: url(images/cloud.gif);
+		}
+		.box ul{
+			position: absolute;
+			list-style: none;
+		}
+		.box ul li{
+			float: left;
+			width: 83px;
+			height: 42px;
+			text-align: center;
+			line-height: 42px;
+			color: #000;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<span class="cloud" id="cloud"></span>
+		<ul id="menu">
+			<li>师资力量</li>
+			<li>师资力量</li>
+			<li>师资力量</li>
+			<li>师资力量</li>
+			<li>师资力量</li>
+			<li>师资力量</li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+var cloud = document.getElementById('cloud');
+var menu = document.getElementById('menu');
+var lis = menu.children;
+var current = 0;//用于存放鼠标点击后的offsetLeft值
+// console.log(lis);
+for(var i=0;i<lis.length;i++){
+	lis[i].onmouseover = function(){
+		// console.log(this.offsetLeft);
+		target = this.offsetLeft;//得到与ul盒子的左侧距离并赋给target
+	}
+	lis[i].onmouseout = function(){
+		target = current;//如果有点击事件发生，则返回到上一个点击的li,没有则返回第一个
+	}
+	lis[i].onclick = function(){
+		current = this.offsetLeft;
+	}
+}
+
+//减速运动
+var leader = 0,target = 0;
+setInterval(function(){
+	leader = leader + (target - leader)/10;
+	cloud.style.left = leader + 'px';
+},10)
+</script>
+</html>

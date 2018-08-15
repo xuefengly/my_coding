@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件对象</title>
+</head>
+<body>
+	
+</body>
+<script>
+	document.onclick = function(event){
+		// console.log(event.clientX);//光标相对于可见区域网页的水平位置
+		// console.log(event.clientY);//光标相对于可见区域网页的垂直位置
+		// console.log(window.event.clientX);//ie678
+		// console.log(window.event.clientY);
+		//兼容性写法
+		var event = event || window.event;
+		console.log(event.clientX);
+		console.log(event.clientY);
+		console.log(event.pageX);
+		console.log(event.screenX);
+	}
+</script>
+
+</html>

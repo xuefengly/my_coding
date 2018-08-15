@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>仿jquery</title>
+	<style type="text/css">
+		div {
+			width: 100px;
+			height: 100px;
+			background-color: #ccc;
+			margin: 10px 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="demo"></div>
+	<div></div>
+	<div class="one"></div>
+	<div></div>
+	<div class="one"></div>
+	<div class="one"></div>
+	<div></div>
+	<div></div>
+</body>
+<script type="text/javascript">
+	function getClass(classname,id){
+		//判断是否支持getELementsByClassName()
+		if(document.getElementsByClassName){
+			//支持
+			//如果有id限制
+			if(id){
+				var elemID = document.getElementById(id);
+				return elemID.getElementsByClassName(classname);
+			}else{
+				return document.getElementsByClassName(classname);
+			}
+		}else{
+			//不支持
+			var arr = [];//用于含类名的标签
+			if(id){
+				//如果有id限制
+				var elemID = document.getElementById(id);
+				//获取含该id元素下的所有标签
+				var boxs = elemID.getElemnetsByTagName('*');
+				//遍历所有标签是否匹配类名
+				for(var i=0;i<boxs.length;i++){
+					//考虑多个类名情况，把元素的类名转换成数组
+					var txtArr = boxs[i].classname.split(' ');
+					console.log(txtArr);
+					for(var j=0;j<txtArr.length;j++){
+						if(txtArr[j] == classname){
+							//如果有匹配类名,把标签加入arr数组4
+							arr.push(boxs[i]);
+							
+						}
+					}
+				}
+			}else{
+				//没有id
+				var boxs = document.getElemnetsByTagName('*');
+				//遍历所有标签是否匹配类名
+				for(var i=0;i<boxs.length;i++){
+					//考虑多个类名情况，把元素的类名转换成数组
+					var txtArr = boxs[i].classname.split(' ');
+					for(var j=0;j<txtArr.length;j++){
+						if(txtArr[j] == classname){
+							//如果有匹配类名,把标签加入arr数组
+							arr.push(boxs[i]);
+							
+						}
+					}
+				}
+			}
+		}
+		return arr;
+	}
+	function $(str){
+		var s = str.charAt(0);//得到字符串参数的第一个字符
+		var ss = str.substr(1);//得到字符串参数除第一个字符以外的其他字符
+		switch(s){
+			//通过对第一个字符判断
+			case '#':
+				return document.getElementById(ss);
+				break;
+			case '.':
+				// console.log(getClass(ss));
+				return getClass(ss);
+				break;
+			default:
+				return document.getElemnetsByTagName(str);
+		}
+	}
+	$('#demo').style.backgroundColor = 'green';
+	var ones = $('.one');
+	for(var i=0;i<ones.length;i++){
+		ones[i].style.backgroundColor = 'blue';
+	}
+</script>
+</html>
