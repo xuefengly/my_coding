@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>水平拖动(进度条)</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.scroll {
+			width: 300px;
+			height: 10px;
+			margin: 100px;
+			background-color: #ccc;
+			position: relative;
+		}
+		.bar {
+			width: 10px;
+			height: 24px;
+			background-color: #369;
+			/*margin-top: -7px;无效*/
+			position: absolute;
+			top: -7px;
+			left: 0;
+			cursor: pointer;
+		}
+		#fill {
+			width: 0;
+			height: 100%;
+			background-color: #369;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div class="scroll" id="scroll">
+		<div class="bar" id="bar"></div>
+		<div id="fill"><!-- 该盒子是填充 --></div>
+		<br/>
+		<div id="text"></div>
+	</div>
+	
+</body>
+<script type="text/javascript">
+	var scroll = document.getElementById('scroll');
+	var text = document.getElementById('text');
+	var bar = scroll.children[0];
+	var fill = scroll.children[1];
+	// 拖动=按下+移动
+	bar.onmousedown = function(event){//鼠标按下
+		var event = event || window.event;//onmousedown事件对象
+		var downLeft = event.clientX - this.offsetLeft;//鼠标按下点相对网页左侧距离
+		var that = this;//that指向bar
+		//注意是bar盒子跟着鼠标走，所以下面是document
+		var length = 0;
+		document.onmousemove = function(event){
+			var event = event || window.event;//onmousemove事件对象
+			length = event.clientX-downLeft;//移动时鼠标位置相对scroll的距离
+			if(length<0){
+				length = 0;
+			}else if(length>290){
+				length = 290;
+			}
+			that.style.left = length+'px';
+			fill.style.width = length + 'px';//填充盒子的宽度
+			text.innerHTML = "已加载"+parseInt(length/290*100)+"%";
+			//清除bar盒子被选中的情况
+			window.getSelection ? window.getSelection().removeAllRanges():document.selection.empty();
+		}
+		document.onmouseup = function(event){
+			document.onmousemove = null;//鼠标弹起不做任何操作
+		}
+	}
+	
+</script>
+</html>

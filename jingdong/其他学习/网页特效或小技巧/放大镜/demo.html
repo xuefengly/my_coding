@@ -54,6 +54,7 @@
 </body>
 <script>
 //关键点：onmouseover事件是small的，mask盒子放在samll中
+//为什么mask放在small里，因为如果不放则当鼠标在mask上时不再small里出现bug
 var box = document.getElementById('box');
 var small = box.children[0];//放小图的盒子
 var big = box.children[1];//放大图的盒子
