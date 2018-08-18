@@ -99,17 +99,25 @@
 	var move = box.children[0];
 	move.onmousedown = function (event) {
 		var event = event || window.event;
-		var downLeft = event.clientX - box.offsetLeft;
-		var downTop = event.clientY - box.offsetTop;
-		console.log(downLeft,downTop);
-		move.onmousemove = function(){
+		var downLeft = event.clientX - box.offsetLeft-200;
+		//鼠标按下点距离box左侧的距离，为抵消margin-left加200
+		var downTop = event.clientY - box.offsetTop-100;
+		//注意：鼠标要在整个页面移动，故对document使用事件(关键)
+		document.onmousemove = function(){
 			var event = event || window.event;
 			var moveX = event.clientX - downLeft;
+			//box盒子对于网页左侧的距离
 			var moveY = event.clientY - downTop;
-			console.log(moveX,moveY);
 			box.style.left = moveX + "px";
 			box.style.top = moveY + "px";
+			//清除选中
+			window.getSelection ? window.getSelection().removeAllRanges():document.selection.empty();
+		}
+		//鼠标弹起
+		document.onmouseup = function(){
+			document.onmousemove = null;//清除onmousemove事件
 		}
 	}
+
 </script>
 </html>

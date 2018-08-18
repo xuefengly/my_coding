@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>固定导航栏</title>
+	<style>
+	        *{
+	        	margin:0;padding:0
+	        }
+	        body {
+	        	margin: 0 auto;
+	        	width: 1423px;
+	        }
+	        img{
+	            vertical-align: top;
+	        }
+	        .main{
+	            margin:0 auto;
+	            width:1000px;
+	            margin-top:10px;
+
+	        }
+	        .fixed {
+	            position: fixed;
+	            top: 0;
+	        }
+	        .box {
+	        	width: 200px;
+	        	/*height: 400px;*/
+	        	background-color: pink;
+	        }
+ 	 </style>
+
+</head>
+<body>
+	<div class="top" id="top">
+	    <img src="images/top.png" alt=""/>
+	</div>
+	<div class="nav" id="Q_nav">
+	    <img src="images/nav.png" alt=""/>
+	</div>
+	<div class="main">
+	    <img src="images/main.png" alt=""/>
+	</div>
+</body>
+<script src="my.js"></script>
+<!-- 注意：防止页面渲染问题,把js导入放body下 -->
+<script>
+	var nav = $('Q_nav');
+	var Top = $('top');
+	var navTop = nav.offsetTop;
+	var topH = Top.offsetHeight;
+	// console.log(navTop,topH);
+	window.onscroll = function(){
+		var scrollTop = scroll().top;
+		// console.log(scrollTop);
+		if(scrollTop >= navTop){
+			nav.className = "nav fixed";
+		}else{
+			nav.className = "nav";
+		}
+	}
+	//注：上述代码在firefox有bug，因为它不支持得到img撑开的高度
+</script>
+</html>

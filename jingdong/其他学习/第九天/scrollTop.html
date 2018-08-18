@@ -1,0 +1,25 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>scrollTop</title>
+	<style type="text/css">
+		body{
+			height: 2000px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	window.onscroll = function(){
+		console.log('成功');
+		console.log('1:',document.body.scrollTop);
+		console.log('2:',document.documentElement.scrollTop);
+		console.log('3:',window.pageYOffset);
+		// var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scroll;
+		// console.log(scrollTop);
+	}
+</script>
+</html>

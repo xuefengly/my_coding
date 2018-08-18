@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>垂直滚动条</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.box {
+			width: 200px;
+			height: 500px;
+			border: 1px solid red;
+			background-color: pink;
+			margin: 100px auto;
+			position: relative;
+			overflow: hidden;
+		}
+		.content {
+			height: auto;
+			position: absolute;
+			padding: 5px 20px 5px 5px;
+			left: 0;
+			top: 0;
+		}
+		.scroll {
+			width: 20px;
+			height: 500px;
+			background-color: #eee;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+		.bar {
+			width: 20px;
+			height: 20px;
+			background-color: red;
+			position: absolute;
+			left: 0;
+			top: 0;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="box" id="box">
+		<div class="content">
+			这是内容部分v这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这是内容部分这
+		</div>
+		<div class="scroll">
+			<div class="bar"></div>
+		</div>
+	</div>
+</body>
+<script>
+	var box = document.getElementById('box');
+	var content = box.children[0];
+	var scroll = box.children[1];
+	var bar = scroll.children[0];
+	//滚动条长度计算：容器的高度/内容的高度*容器的高度
+	var BarLength = box.offsetHeight/content.offsetHeight*box.offsetHeight;
+	bar.style.height = BarLength + "px";
+	bar.onmousedown = function(event){
+		var event = event || window.event;
+		var downTop = event.clientY - this.offsetTop;
+		var that = this;
+		document.onmousemove = function(event){
+			var event = event || window.event;
+			var moveY = event.clientY - downTop;
+			var len = scroll.offsetHeight - that.offsetHeight;
+			console.log(len);
+			var conTop = (content.offsetHeight-scroll.offsetHeight)/(scroll.offsetHeight-that.offsetHeight);//多余内容和滚动条差值的比例
+			if(moveY < 0){
+				moveY = 0;
+			}else if(moveY > len){
+				moveY = len;
+			}else{
+				//内容移动
+				content.style.top = -conTop*moveY + "px";
+			}
+			that.style.top = moveY + "px";
+			//清除选中
+			window.getSelection ? window.getSelection().removeAllRanges():document.selection.empty();
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+		}
+	}
+</script>
+</html>
