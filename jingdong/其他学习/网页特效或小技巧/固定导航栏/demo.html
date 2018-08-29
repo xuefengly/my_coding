@@ -24,11 +24,6 @@
 	            position: fixed;
 	            top: 0;
 	        }
-	        .box {
-	        	width: 200px;
-	        	/*height: 400px;*/
-	        	background-color: pink;
-	        }
  	 </style>
 
 </head>
@@ -44,7 +39,7 @@
 	</div>
 </body>
 <script src="my.js"></script>
-<!-- 注意：防止页面渲染问题,把js导入放body下 -->
+<!-- 注意：防止页面渲染问题,把js导入放body后面 -->
 <script>
 	var nav = $('Q_nav');
 	var Top = $('top');
@@ -60,6 +55,6 @@
 			nav.className = "nav";
 		}
 	}
-	//注：上述代码在firefox有bug，因为它不支持得到img撑开的高度
+	//注：上述代码在firefox有bug，因为它不支持得到img撑开的高度(使用的firefox61)
 </script>
 </html>

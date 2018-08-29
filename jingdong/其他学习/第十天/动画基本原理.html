@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画基本原理</title>
+	<style>
+		.box {
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			position: absolute;
+			top: 60px;
+			left: 0;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">start</button>
+	<div id="box" class="box"></div>
+</body>
+<script>
+var	btn = document.getElementById("btn");
+var	box = document.getElementById("box");
+var timer = null;
+btn.onclick = function(){
+	
+	timer = setInterval(function(){
+		if(box.offsetLeft > 600){
+			clearInterval(timer);
+		}
+		box.style.left = box.offsetLeft + 10 + "px";
+	},30);
+}
+</script>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>旋转木马轮播图</title>
+    <link rel="stylesheet" href="css/css.css"/>
+</head>
+<body>
+<div class="wrap" id="wrap">
+   <div class="slide" id="slider">
+       <ul>
+           <li><a href="#"><img src="images/slidepic1.jpg" alt=""/></a></li>
+           <li><a href="#"><img src="images/slidepic2.jpg" alt=""/></a></li>
+           <li><a href="#"><img src="images/slidepic3.jpg" alt=""/></a></li>
+           <li><a href="#"><img src="images/slidepic4.jpg" alt=""/></a></li>
+           <li><a href="#"><img src="images/slidepic5.jpg" alt=""/></a></li>
+       </ul>
+       <div class="arrow" id="arrow">
+           <a href="javascript:;" class="prev"></a>
+           <a href="javascript:;" class="next"></a>
+       </div>
+   </div>
+</div>
+</body>
+<script src="js/animate.js" type="text/javascript"></script>
+<script>
+  var wrap = document.getElementById("wrap");
+  var arrow = document.getElementById("arrow");
+  // var slider = document.getElementById("slider");
+  var lis = slider.children[0].children;
+  //鼠标移入移出效果
+  wrap.onmouseover = function(){
+    animate(arrow,{'opacity': 100});
+  }
+  wrap.onmouseout = function(){
+    animate(arrow,{'opacity': 0});
+  }
+  //json数组存储每张图片信息
+  var json = [
+        {   //  1
+            width:400,
+            top:20,
+            left:50,
+            opacity:20,
+            z:2
+        },
+        {  // 2
+            width:600,
+            top:70,
+            left:0,
+            opacity:80,
+            z:3
+        },
+        {   // 3
+            width:800,
+            top:100,
+            left:200,
+            opacity:100,
+            z:4
+        },
+        {  // 4
+            width:600,
+            top:70,
+            left:600,
+            opacity:80,
+            z:3
+        },
+        {   //5
+            width:400,
+            top:20,
+            left:750,
+            opacity:20,
+            z:2
+        }
+  ];
+  var beal = true;//用于判断函数节流，防止多次点击旋转效果加速
+  //左右箭头点击事件
+  var arrows = arrow.children;
+  change();//默认执行change()函数
+  for(var k in arrows){
+    arrows[k].onclick = function(){
+      if(this.className == "prev"){
+          //左侧箭头
+          if(beal){
+            change(false);
+            beal = false;//点击完取反
+          }
+      }else{
+          //右侧箭头
+          if(beal){
+            change(true);
+            beal = false;
+          }
+      }
+    }
+  }
+function change(flag){
+  if(flag){
+    //右侧箭头，把json数组最后一个数据删除，并把它放到第一个位置上
+    json.unshift(json.pop());
+  }else{
+    //左侧箭头，把json数组第一个删除，并放在最后一个位置
+    json.push(json.shift());
+  }
+  for(var j=0;j<json.length;j++){
+    animate(lis[j],{
+      width: json[j].width,
+      left: json[j].left,
+      top: json[j].top,
+      opacity: json[j].opacity,
+      zIndex: json[j].z
+    },function(){
+      //使用回调函数，在执行完动画后把beal变true
+      beal = true;
+    })
+  }
+}
+</script>
+</html>
+<!--
+关键：json的交换
+-->

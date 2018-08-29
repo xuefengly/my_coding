@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选中文字</title>
+	<style>
+		#box {
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: none;
+		}
+		div {
+			width: 400px;
+			height: 400px;
+			margin: 100px;
+		}
+	</style>
+</head>
+<body>
+	<span id="box"></span>
+	<div id="test">请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字文字请选中文字请选中文字请选中文字请选中文字请选中文字请选中文字</div>
+	<div id="other">
+		选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出选中文字我不弹出
+	</div>
+</body>
+<script>
+	var box = document.getElementById('box');
+	var test = document.getElementById('test');
+	test.onmouseup = function(event){
+		var event = event || window.event;
+		var x = event.clientX;//鼠标的x坐标
+		var y = event.clientY;
+		var txt;//用于存储选中的文字
+		//获取选中的文字
+		if(window.getSelection){
+			txt = window.getSelection().toString();//w3c标准：选中文字转换为字符串并赋值
+		}else{
+			txt = document.selection.createRange().text;//ie678:选中文字并赋值
+		}
+		if(txt){
+			console.log(txt);
+			//判断是否选中文字，可防止点击事件执行
+			show(x,y,txt);
+		}
+	}
+	function show(x,y,text){
+		//延时0.2秒
+		setTimeout(function(){
+			box.style.display = "block";
+			box.style.left = x + "px";
+			box.style.top = y + "px";
+			box.innerHTML = text;
+		},200)
+	}
+	//点击除box盒子外隐藏box盒子
+	document.onmousedown = function(event){
+		var event = event || window.event;
+		var targetId = event.target ? event.target.id : event.srcElement.id;
+		console.log(targetId);
+		if(targetId != "box"){
+			// console.log("haha");
+			box.style.display = "none";
+		}
+		//存在bug:
+		//1:如果点击选中的文章，box盒子还会弹出
+		//2：如果内容过多有滚动条，box盒子位置以左下角为点对其鼠标坐标
+	}
+</script>
+</html>

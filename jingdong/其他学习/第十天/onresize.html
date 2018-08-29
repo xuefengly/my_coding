@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>onresize事件</title>
+</head>
+<body>
+	
+</body>
+<script>
+reSize();//页面加载完先调用一次
+window.onresize = reSize;
+function client(){
+	if(window.clientWidth != null){
+		//ie9+和新版浏览器
+		return {
+			width: window.clientWidth,
+			height: window.clientHeight
+		}
+	}else if(document.compatMode == "CSS1Compat"){
+		//标准模式
+		return {
+			width: document.documentElement.clientWidth,
+			height: document.documentElement.clientHeight
+		}
+	}else{
+		//怪异模式
+		return {
+			width: document.body.clientWidth,
+			height: docum.body.clientHeight
+		}
+	}
+}
+function reSize(){
+	var clientWidth = client().width;
+	if(clientWidth > 960){
+		document.body.style.backgroundColor = "blue";
+	}else if(clientWidth > 640){
+		document.body.style.backgroundColor = "red";
+	}else{
+		document.body.style.backgroundColor = "pink";
+	}
+}	
+</script>
+</html>

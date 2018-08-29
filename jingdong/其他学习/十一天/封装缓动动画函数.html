@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封装缓动函数</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">200</button>
+	<button id="btn2">400</button>
+	<div class="box" id="box"></div>
+</body>
+<script>
+var btn1 = document.getElementById("btn1");
+var btn2 = document.getElementById("btn2");
+var timer = null;
+btn1.onclick = function(){
+	move(box,200);
+}
+function move(obj,target){
+	clearInterval(obj.timer);
+	//利用自定义属性，可以实现不同对象共用一个定时器
+	obj.timer = setInterval(function(){
+		var step = (target - box.offsetLeft)/10;//步长
+		step = step > 0 ? Math.ceil(step):Math.floor(step);
+		box.style.left = box.offsetLeft + step + "px";
+	},30);
+	if(target == box.offsetLeft){
+		clearInterval(obj.timer);
+	}
+}
+</script>
+</html>

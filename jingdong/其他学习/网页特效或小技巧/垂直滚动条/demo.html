@@ -70,7 +70,7 @@
 			var event = event || window.event;
 			var moveY = event.clientY - downTop;
 			var len = scroll.offsetHeight - that.offsetHeight;
-			console.log(len);
+			// console.log(len);
 			var conTop = (content.offsetHeight-scroll.offsetHeight)/(scroll.offsetHeight-that.offsetHeight);//多余内容和滚动条差值的比例
 			if(moveY < 0){
 				moveY = 0;
@@ -85,7 +85,7 @@
 			window.getSelection ? window.getSelection().removeAllRanges():document.selection.empty();
 		}
 		document.onmouseup = function(){
-			document.onmousemove = null;
+			document.onmousemove = null;//清除onmousemove事件
 		}
 	}
 </script>

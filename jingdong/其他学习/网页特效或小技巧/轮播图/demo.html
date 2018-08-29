@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul,ol {
+			list-style: none;
+		}
+		img {
+			display: block;/*消除图片底部3px缝隙*/
+		}
+		.main {
+			width: 600px;
+			height: 300px;
+			margin: 100px auto;
+			border: 1px solid #ccc;
+			padding: 5px;
+			position: relative;
+		}
+		.box {
+			width: 100%;
+			height: 100%;
+			position: relative;
+			overflow: hidden;
+		}
+		.box ul {
+			width: 700%;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		.box ul img {
+			width: 600px;
+			height: 300px;
+		}
+		.box ul li{
+			float: left;
+		}
+		.main ol {
+			position: absolute;
+			left: 50%;
+			margin-left: -60px;
+			bottom: 10px;
+		}
+		.main ol li{
+			float: left;
+			margin-right: 8px;
+			width: 18px;
+			height: 18px;
+			line-height: 18px;
+			text-align: center;
+			background-color: #fff;
+			cursor: pointer;
+		}
+		.main .current {
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+	<div class="main" id="contain">
+		<div class="box">
+			<ul id="slider">
+				<li><a href="#"><img src="images/1.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/3.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/4.jpg" alt=""></a></li>
+				<li><a href="#"><img src="images/5.jpg" alt=""></a></li>
+			</ul>
+		</div>
+		<ol id="circle">
+			<li class='current'>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ol>
+	</div>
+</body>
+<script type="text/javascript">
+	var slider = document.getElementById("slider");
+	var contain = document.getElementById("contain");
+	var circle = document.getElementById("circle");
+	var lis = circle.children;
+	var picWidth = slider.children[0].offsetWidth;//图片盒子li的宽度
+	console.log(picWidth);
+	var lastPic = slider.children[0].cloneNode(true)//复制第一张图的节点li及其子节点
+	slider.appendChild(lastPic);//把lastPic添加到slider最后
+	//鼠标经方块滑动
+	for(var i=0;i<lis.length;i++){
+		lis[i].index = i;//记录索引号
+		lis[i].onmouseover = function(){
+			for(var j=0;j<lis.length;j++){
+				lis[j].className = "";//清空类
+			}
+			this.className = "current";
+			animate(slider,-this.index*picWidth);//调用动画函数,slider盒子做动画,走一个盒子的宽度
+			square = key = this.index;//以鼠标经过方块索引号优先
+		}
+	}
+	//动画函数
+	function animate(obj,target){
+		//第一参数为做动画的对象，第二位目标位置
+		clearInterval(obj.timer);//防止多次点击加速
+		console.log(obj.offsetLeft,target);
+		var speed = 15;//滑动速度绝对值,也可称步长
+		realSpeed = target > obj.offsetLeft ? speed : -speed;
+		obj.timer = setInterval(function() {
+			var result = target - obj.offsetLeft;
+			obj.style.left = obj.offsetLeft + realSpeed + "px";
+			if(Math.abs(result) < speed){
+				//当差值绝对值小于步长时
+				clearInterval(obj.timer);
+				obj.style.left = target + "px";
+			}
+		},15);
+	}
+	// 自动轮播
+	var timer = null;
+	var key = 0;//控制播放张数
+	var square = 0;
+	timer = setInterval(autoPlay,2000);
+	function autoPlay(){
+		key++;//先自加
+		console.log(key);
+		if(key > lis.length){
+			slider.style.left = 0;//当移动到第六张图时，替换到第一张
+			key = 1;//赋值第二张图的key
+
+		}
+		animate(slider,-key*picWidth);//向左滑动图片
+
+		//底部对应方块显示
+		square++;
+		// console.log(square);
+		
+		
+		if(square > lis.length-1){
+			square = 0;
+		}
+		for(var i=0;i<lis.length;i++){
+			lis[i].className = "";//清空类名
+		}
+		lis[square].className = "current";
+	}
+	//鼠标经过整个轮播容器和离开事件
+	contain.onmouseover = function(){
+		clearInterval(timer);
+	}
+	contain.onmouseout = function(){
+		timer = setInterval(autoPlay,2000); 
+	}
+</script>
+</html>

@@ -63,6 +63,7 @@
 			timer = setInterval(function(){
 				leader = leader + (target - leader)/10;
 				window.scrollTo(0,leader);
+				console.log(window.scrollTop);
 			},30)
 		}
 	}

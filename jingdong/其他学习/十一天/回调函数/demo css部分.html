@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 322px;
+            position: fixed;
+            bottom:0;
+            right:0;
+        }
+        span{
+            position: absolute;
+            top:0;
+            right:0;
+            width:30px;
+            height: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <span></span>
+    <div class="hd" id="t">
+        <img src="images/t.jpg" alt=""/>
+    </div>
+    <div class="bd" id="b">
+        <img src="images/b.jpg" alt=""/>
+    </div>
+</div>
+</body>
+<script>
+var box = document.getElementById("box");
+var close = box.children[0];
+var t = document.getElementById("t");
+var b = document.getElementById("b");
+console.log(b);
+close.onclick = function(){
+    animate(b,{height: 0},function(){
+        animate(box,{width:0});
+    });
+}
+//动画函数
+var timer = null;
+function animate(obj,json,fn){
+    clearInterval(obj.timer);
+    // console.log(obj);
+    obj.timer = setInterval(function(){
+        var flag = true;//判断定时器是否清除的开关
+        //遍历json
+        for(var attr in json){
+            var current = parseInt(getStyle(obj,attr));//得到当前属性并去掉px
+            //计算步长 （目标位置-当前位置)/10
+            var step = (json[attr] - current)/10;
+            step = step > 0 ? Math.ceil(step):Math.floor(step);
+            obj.style[attr] = current + step + "px";
+            // if(current == json[attr]){//该法存在bug:可能有部分属性未达到目标值定时器就停止了
+            //  clearInterval(obj.timer);
+            // }
+            // console.log(current,json[attr],step);
+            if(current != json[attr]){
+                //如果有任一属性没有达到目标值
+                flag = false;
+            }
+        }
+        if(flag){
+            clearInterval(obj.timer);//清除定时器
+            if(fn){//存在回调函数执行回调函数
+                fn();
+            }
+        }
+    },30);
+}
+//得到样式
+function getStyle(obj,attr){
+    //参数：对象，属性
+    if(obj.currentStyle){
+        return obj.currentStyle[attr];
+    }else{
+        return window.getComputedStyle(obj,null)[attr];
+    }
+}
+</script>
+</html>

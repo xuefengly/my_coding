@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阻止冒泡</title>
+</head>
+<body>
+	<button id="btn">点我</button>
+</body>
+<script>
+var btn = document.getElementById('btn');
+btn.onclick = function(){
+	var event = event || window.event;
+	alert("我是btn");
+	if(event && event.stopPrapagation){
+		event.stopPrapagation();//w3c标准
+	}else{
+		event.cancelBubble = true;//ie678
+	}
+}
+document.onclick = function(){
+	alert("我是document");
+}
+
+</script>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>添加透明度缓动函数</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			position: absolute;
+			left: 0;
+			top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">200</button>
+	<button id="btn2">400</button>
+	<div class="box" id="box"></div>
+</body>
+<script>
+var btn1 = document.getElementById("btn1");
+var btn2 = document.getElementById("btn2");
+var box = document.getElementById("box");
+btn1.onclick = function(){
+	//注意：对于ie，只有css样式里已有的属性才能改变，如left,top等等
+	animate(box,{width: 200,left: 200,top: 100,opacity: 40,zIndex: 4},function(){
+		alert("达到目标");
+	});
+}
+btn2.onclick = function(){
+	animate(box,{height:400},function(){
+		animate(box,{width:400})
+	});
+}
+//动画函数
+// var timer = null;
+function animate(obj,json,fn){
+	clearInterval(obj.timer);
+	obj.timer = setInterval(function(){
+		var flag = true;//判断定时器是否清除的开关
+		//遍历json
+		for(var attr in json){
+			var current = 0;//用于存放当前属性
+			if(attr == "opacity"){
+				//透明度
+				current = Math.round(parseInt(getStyle(obj,attr)*100)) || 0;//ie678没有opacity,会产生undefined,undefined || 0为0;防止在ie产生undefined+1-->NaN的结果
+			}else{
+				console.log(current);
+				current = parseInt(getStyle(obj,attr));//得到当前属性并去除px
+				console.log("触发了",current,json[attr]);
+
+			}
+			// console.log(json[attr]);
+			//计算步长 （目标位置-当前位置)/10
+			var step = (json[attr] - current) / 10;
+			step = step > 0 ? Math.ceil(step):Math.floor(step);
+			//判断属性
+            if(attr == "opacity"){
+                if("opacity" in obj.style){
+                    //w3c标准浏览器(支持opacity)
+                    obj.style.opacity = (current + step)/100;
+                }else{
+                    //ie678
+                    obj.style.filter = "alpha(opacity = "+(current+step)*10+")";//ie678情况下直接达到目标值，故乘10
+                }
+            }else if(attr == "zIndex"){
+                	obj.style.zIndex = json[attr];
+            }else{
+                obj.style[attr] = current + step + "px";
+            }
+			// if(current == json[attr]){//该法存在bug:可能有部分属性未达到目标值定时器就停止了
+			// 	clearInterval(obj.timer);
+			// }
+			if(current != json[attr]){
+				//如果有任一属性没有达到目标值
+				flag = false;
+				console.log("触发了",current,json[attr]);
+			}
+		}
+		if(flag){
+			clearInterval(obj.timer);
+			if(fn){
+				fn();
+			}
+		}
+	},30);
+}
+//得到样式
+function getStyle(obj,attr){
+	//参数：对象，属性
+	if(obj.currentStyle){//ie
+		// console.log(obj.currentStyle[attr]);
+		return obj.currentStyle[attr];
+	}else{
+		return window.getComputedStyle(obj,null)[attr];
+	}
+}
+</script>
+</html>
