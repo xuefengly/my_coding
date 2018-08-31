@@ -17,7 +17,7 @@
 		var houzhui = path.substr(path.lastIndexOf('.'));//得到后缀，从倒数第一个点开始截取
 		var suxxif = houzhui.toLowerCase();//把后缀全部转换成小写，有的后缀可能是大写,也可用toUpperCase()全部转换成大写判断
 		console.log(suxxif);
-		if(suxxif == '.jpg' || suxxif == '.png' || suxxif == '.mp3'){
+		if(suxxif == '.jpg' || suxxif == '.png' || suxxif == '.mp3' || suxxif == ".mp4"){
 			this.nextSibling.innerHTML = '格式正确';
 		}else{
 			this.nextSibling.innerHTML = '格式选择错误';

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>闭包</title>
+	<style>
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">右移</button>
+	<button id="btn2">左移</button>
+	<div id="box" class="box"></div>
+</body>
+</html>
+<script>
+//闭包关键在return
+function outFn(){
+	var num = 29;
+	console.log("outfn: ",num);
+	function inFn(){
+		console.log("inFn: ",num);
+	}
+	return inFn;
+}
+console.log(outFn());
+
+
+//测试
+console.log("测试:");
+function outFun(){
+	var a = 0;
+	function innerFun(){
+		a++;
+		console.log(a);
+	}
+	return innerFun;
+}
+var obj = outFun();//obj为innerFun函数体
+obj();//1
+obj();//2
+var obj2 = outFun();
+obj2();//1
+obj2();//2
+
+//闭包的函数传参
+console.log("传参：")
+function fn(x){
+	return function(y){
+		console.log(x+y);
+	}
+}
+var fun1 = fn(6);
+fun1(2);//8
+
+// 例子运用
+var box = document.getElementById("box");
+var btn1 = document.getElementById("btn1");
+var btn2 = document.getElementById("btn2");
+// // 曾经写法：onclick事件后的函数不能有除event以外参数
+// function move(speed){
+// 	box.style.left = box.offsetLeft + speed + "px";
+// }
+// btn1.onclick = function(){
+// 	move(5);
+// }
+// btn2.onclick = function(){
+// 	move(-5);
+// }
+// 含闭包写法
+function move(speed){
+	return function(){
+		box.style.left = box.offsetLeft + speed + "px";
+	}
+}
+btn1.onclick = move(5);
+btn2.onclick = move(-5);
+</script>

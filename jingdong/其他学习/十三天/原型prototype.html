@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+		var arr = [];
+		arr.run = function(){//自定义方法
+			alert("haha");
+		}
+		arr.run();
+		
+		var arr2 = [];
+		//console.log(arr2.run());//arr2没有run()方法；Uncaught TypeError: arr2.run is not a function
+
+		Array.prototype.run = function(){//数组都有run()方法
+			alert("大家都有");
+		}
+		var demo = [];
+		demo.run();
+		var demo1 = [];
+		demo1.run();
+</script>
+</html>

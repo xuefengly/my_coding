@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	function Person(name,age){
+		this.name = name;//此处this指向windwo
+		this.age = age;
+	}
+
+	Person.prototype.run = function(){
+		//在Person上添加run()方法，只要是Person的实例都有run()方法
+		alert("我的名字是："+this.name);//此处this指向Person构造函数
+	}
+	var demo = new Person("熊大",29);//实例化，new改变Person()里的this指向，指向Person
+	demo.run()//所以可以执行run()
+	var demo2 = new Person("熊二",24);
+	demo2.run();
+	console.log(demo.run == demo2.run);//都指向原型的run，true；
+</script>
+</html>

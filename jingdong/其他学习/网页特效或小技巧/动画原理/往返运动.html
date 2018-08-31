@@ -31,14 +31,13 @@ $("btn2").onclick = function(){
 }
 function animate(obj,target){
 	//第一参数为做动画的对象，第二位目标位置
-	clearInterval(obj.timer);//防止多次点击导致动画加速混乱
+	clearInterval(obj.timer);//防止多次点击加速
 	var speed = target > obj.offsetLeft ? 5 : -5;
-	//当目标值大于当前值是speed为5，否则为-5;
 	obj.timer = setInterval(function() {
-		var result = target - obj.offsetLeft;//差值
+		var result = target - obj.offsetLeft;
 		obj.style.left = obj.offsetLeft + speed + "px";
 		if(Math.abs(result) < 5){
-			//当差值绝对值小于5时
+			//当差值小于5时
 			obj.style.left = target + "px";
 			clearInterval(obj.timer);
 		}

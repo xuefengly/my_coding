@@ -1,0 +1,140 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style type="text/css">
+  	*{
+  		padding: 0;
+  		margin: 0;
+  	}
+	.box{
+		width:350px;
+		height: 300px;
+		margin:100px auto;
+		border: 1px solid #ccc;
+	}
+	.mt span{
+		display: inline-block;
+		width:80px;
+		height: 30px;
+		background-color: pink;
+		line-height: 30px;
+		text-align: center;
+		cursor: pointer;
+	}
+	.md {
+		width:350px;
+		height: 270px;
+		overflow: hidden;
+	}
+	.md li{
+		list-style:none;
+		background-color: purple;
+		width:350px;
+		height: 270px;
+		display: none;
+	}
+	.mt span.current {
+		background-color: purple;
+	}
+	.md li.show {
+		display: block;
+	}
+  </style>
+</head>
+<body>
+	<div class="box" id="one">
+		<div class="mt">
+	   		<span class="current">新闻</span>
+	   		<span>娱乐</span>
+	   		<span>体育</span>
+	   		<span>八卦</span>
+	    </div>
+	    <div class="md">
+			<ul>
+				<li class="show">新闻模块</li>
+		   		<li>娱乐模块</li>
+		   		<li>体育模块</li>
+		   		<li>八卦模块</li>
+			</ul>
+	    </div>
+	</div>
+	<div class="box" id="two">
+		<div class="mt">
+	   		<span class="current">新闻</span>
+	   		<span>娱乐</span>
+	   		<span>体育</span>
+	   		<span>八卦</span>
+	    </div>
+	    <div class="md">
+			<ul>
+				<li class="show">新闻模块</li>
+		   		<li>娱乐模块</li>
+		   		<li>体育模块</li>
+		   		<li>八卦模块</li>
+			</ul>
+	    </div>
+	</div>
+	<div class="box" id="three">
+		<div class="mt">
+	   		<span class="current">新闻</span>
+	   		<span>娱乐</span>
+	   		<span>体育</span>
+	   		<span>八卦</span>
+	    </div>
+	    <div class="md">
+			<ul>
+				<li class="show">新闻模块</li>
+		   		<li>娱乐模块</li>
+		   		<li>体育模块</li>
+		   		<li>八卦模块</li>
+			</ul>
+	    </div>
+	</div>
+</body>
+<script type="text/javascript">
+	//封装tab函数，实现多个tab栏切换,闭包版可不用创建索引号
+	function tab(obj){
+		var target = document.getElementById(obj);
+		var spans = target.getElementsByTagName('span');
+		var lis = target.getElementsByTagName('li');
+		// console.log(spans);
+		// console.log(lis);
+		// 方法1：
+		/*for(var i=0;i<spans.length;i++){
+			spans[i].onmouseover = fn(i);
+			function fn(index){
+				console.log(index);
+				return function(){
+					for(var j=0;j<spans.length;j++){
+					spans[j].className = '';//清空类名
+					lis[j].className = '';
+					}
+					spans[index].className = 'current';
+					lis[index].className = 'show';
+				}
+			}
+		}*/
+		//方法2：立即执行
+		for(var i=0;i<spans.length;i++){
+			spans[i].onmouseover = function fn(index){
+				console.log(index);
+				return function(){
+					for(var j=0;j<spans.length;j++){
+					spans[j].className = '';//清空类名
+					lis[j].className = '';
+					}
+					spans[index].className = 'current';
+					lis[index].className = 'show';
+				}
+			}(i);//i为实参，index为形参
+			
+		}
+		
+	}
+	tab('one');
+	tab('two');
+	tab('three');
+</script>
+</html>
