@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		li{
+			color: #000;
+		}
+		.ha {
+			/*color: #ccc;*/
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>我是li1</li>
+		<li>我是li2</li>
+		<li class="ha">我是li3</li>
+		<li>我是li4</li>
+		<li>我是li5</li>
+		<li class="ha">我是li6</li>
+		<li>我是li7</li>
+		<li>我是li8</li>
+	</ul>
+</body>
+<script src="../jquery-1.11.1.js"></script>
+<script>
+	//设置当个样式
+	// $("li").css("background-color","green");
+	
+	//设置多个样式
+	// $("li").css({
+	// 	"background-color": "blue",
+	// 	"color": "#fff",
+	// 	"font-size": "18px"
+	// });
+
+	//设置不同样式
+	$("li").css("font-size",function(index,value){
+		//index为索引，value为浏览器默认大小（可在样式里更改，带px哦）
+		//return (index+1) * parseInt(value) + "px";//设置所有
+		//设置单个
+		if(index == 2){
+			return 20+"px";
+		}
+	})
+</script>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery</title>
+	<style>
+		div {
+			height: 200px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" id="btn" value="点击" />
+	<div></div>
+</body>
+<script src="jquery-1.11.1.js"></script>
+<script>
+	console.log($("#btn"));
+	$("#btn").click(function(){
+		$("div").hide(1000);
+	});
+</script>
+</html>

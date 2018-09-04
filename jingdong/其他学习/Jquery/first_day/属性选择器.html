@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性选择器</title>
+	<script src="../jquery-1.11.1.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("a[href]").css("color","red");
+			//[attr=value]
+			$("a[href='http://www.qq.com']").css("font-size","30px");
+			//[attr != value]
+			$("a[href!='http://www.qq.com']").css("font-size",'36px');
+			//[arrt^=value]以value开头
+			$("a[href^='http']").css("color","blue");
+			//[attr$=value]以value结尾
+			$("a[href$='com']").css("background-color","#ccc");
+			//[attr*=value]包含value
+			$("a[href*='i']").css('font-size','50px');
+			//[attr1][attr2][attr3]
+			$("a[href][title='ali']").css('font-size',"60px");
+		});
+	</script>
+</head>
+<body>
+	<a href="www.baidu.com">百度</a>
+	<a href="http://www.qq.com">QQ</a>
+	<a href="http://www.alibaba.com" title="ali">阿里</a>
+	<a href="#">我没有href</a>
+</body>
+</html>

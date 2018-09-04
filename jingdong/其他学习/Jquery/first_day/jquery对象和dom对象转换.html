@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象转换</title>
+	<style>
+		.box {
+			height: 200px;
+			background: black;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">按钮</button>
+	<div class="box"></div>
+</body>
+<script src="jquery-1.11.1.js"></script>
+<script type="text/javascript">
+	//dom对象转换成jquery对象,使用$()
+	//dom对象有onclick事件，而jquery则是click事件
+	var btn = document.getElementById("btn");//dom对象
+	// btn.onclick = function(){
+	// 	alert("我是dom对象");
+	// }
+	// $(btn).click(function(){
+	// 	alert("我被转换成jquery对象");
+	// })
+
+	//jquery对象转换成dom对象,使用[]索引或get(index)
+	// $('#btn')[0].onclick = function(){
+	// 	alert("我被转换成dom对象");
+	// }
+
+	$("#btn").get(0).onclick = function(){
+		alert("我被转换成dom对象");
+	}
+</script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>层级选择器</title>
+</head>
+<body>
+	<div>
+		<ul>
+			<li>haha</li>
+			<li>aaa</li>
+			<li>bbb</li>
+		</ul>
+		<input type="button" value="haha" name="">
+		<li>gadgf</li>
+		<li>dafa</li>
+		<li>grweaf</li>
+	</div>
+</body>
+<script src="jquery-1.11.1.js"></script>
+<script>
+	$("div ul li").css("background-color","red");
+	$("ul+input").width(500);
+	$("ul>li").css("height","40px");
+</script>
+</html>

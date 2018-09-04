@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>筛选选择器</title>
+	<script src="../jquery-1.11.1.js"></script>
+	<script>
+		
+		$(document).ready(function(){
+			//.eq(index)第几个
+			$("span").eq(2).css("font-size","40px");
+			//.first()第一个
+			$("span").first().css("font-size","20px");
+			//.last()最后一个
+			$("span").last().css("font-size","14px");
+			//.parent(expr),父级，参数可选（类名、id...）
+			$("span").parent().css("background-color","green");
+			//.siblings(expr)兄弟
+			$("li#six").siblings().css("background-color","pink");
+			$("li#six").siblings(".four").css("background-color","red");
+			//.find()子元素查找
+			$("ul").find('#six').css("background-color","blue");
+		});
+	</script>
+</head>
+<body>
+	<div>
+		<span>我是第1个span</span>
+		<span>我是第2个span</span>
+		<span>我是第3个span</span>
+	</div>
+	<ul>
+		<li>我是第1个li</li>
+		<li>我是第2个li</li>
+		<li>我是第3个li</li>
+		<li class="four">我是第4个li</li>
+		<li>我是第5个li</li>
+		<li id="six">我是第6个li</li>
+		<li>我是第7个li</li>
+		<li>我是第8个li</li>
+	</ul>
+</body>
+</html>
