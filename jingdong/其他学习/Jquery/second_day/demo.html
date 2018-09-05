@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../jquery-1.11.1.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("div").eq(0).css({
+				//这里的键值对，键可以为双引号、单引号、或者不带引号
+				//一些不合法（js语法)的变量名，可加引号来声明
+				"font-size": "40px"
+			});
+			var $div = $("div").eq(0);//还是jquery对象
+			console.log($div);
+
+			var divDom = $("div").get(0);//dom对象
+			console.log(divDom);
+		})
+	</script>
+</head>
+<body>
+	<div>aaa</div>
+	<div>bbb</div>
+	<div>ccc</div>
+</body>
+</html>

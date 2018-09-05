@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滑动</title>
+	<script src="../jquery-1.11.1.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("div").css({
+				"width": "200px",
+				"height": "200px",
+				"background-color": "blue",
+				"display": "none"
+			});
+			$("button").eq(0).click(function(){
+				//下拉显示
+				$("div").slideDown(2000);
+				//两个参数的时候
+				//第一个：动画时长；第二个：动画执行完调用的函数
+				//三个参数的时候
+				//第一个：动画时长；第二个：动画速度（匀速/变速);第三个：动画执行完后调用的函数（回调函数)
+			});
+			$("button").eq(1).click(function(){
+				//下拉显示
+				$("div").slideUp(2000);
+			});
+			$("button").eq(2).click(function(){
+				//下拉显示
+				$("div").slideToggle(2000);
+			});
+		});
+	</script>
+</head>
+<body>
+	<button>下拉</button>
+	<button>上拉</button>
+	<button>切换</button>
+	<div></div>
+</body>
+</html>
