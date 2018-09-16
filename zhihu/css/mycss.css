@@ -5,11 +5,13 @@ body{
 	color:#555;
 	height:100%;
 	position:relative;
-
 }
 *{
 	margin:0;
 	padding:0;
+}
+input {
+	outline: none;
 }
 #box{
 	padding:0;
@@ -27,7 +29,7 @@ body{
 
 }
 .header{
-	
+
 
 }
 .header-h1{
@@ -50,11 +52,11 @@ body{
 }
 .main-a{
 	font-size: 18px;
-	
+
 	width:144px;
 	height:44px;
 	margin:0 auto 10px auto;
-	
+
 }
 .diyi{
 	float:left;
@@ -70,10 +72,10 @@ a{
 	width:4em;
 	color: #555;
 	text-decoration: none;
-	
+
 }
 input.kuang{
-    margin:0 auto;
+  margin:0 auto;
 	width:270px;
 	height:20px;
 	position:absolute;
@@ -118,7 +120,7 @@ button{
 	line-height: 42px;
 	text-align: center;
 	margin-top: 10px;
-	
+
 }
 .footer a,.footer span{
 	color:#aebdc9;
