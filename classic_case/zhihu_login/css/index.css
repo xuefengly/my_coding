@@ -1,0 +1,254 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+input {
+  outline: none;/*清除浏览器input焦点边框*/
+}
+a{
+  text-decoration: none;
+  color: #000;
+}
+body {
+  background-color: #ccc;
+}
+.main {
+  width: 432px;
+  /* height: 400px; */
+  background-color: #fff;
+  margin: 100px auto 0;
+}
+/* register部分 */
+/* header部分 */
+.Signheader{
+  padding: 40px 0 0 0;
+}
+.Signheader-icon {
+  text-align: center;
+}
+.Signheader-slogen p{
+  text-align: center;
+  color: #0084ff;
+  font-size: 22px;
+  margin-top: 10px;
+}
+
+/* form部分 */
+.Signcontent,.loginContent{
+  padding: 0 40px 36px;
+}
+.phone,.msm,.form-footer {
+  height: 48px;
+}
+.phone {
+  margin-top: 16px;
+  border-bottom: 1px solid #ebebeb;
+}
+.phone button{
+  outline: none;
+  border: 0;
+  height: 40px;
+  color: #8590a6;
+  line-height: 40px;
+  background: none;
+  font-size: 16px;
+}
+.phone span{
+  margin: 0 5px;
+  color: #ebebeb;
+}
+.phone input {
+  width: 200px;
+  border: 0;
+  height: 48px;
+  line-height: 48px;
+  font-size: 16px;
+}
+.message {
+  height: 40px;
+  padding-top: 8px;
+  border-bottom: 1px solid #ebebeb;
+}
+.message input {
+  height: 40px;
+  border: 0;
+  line-height: 40px;
+  font-size: 16px;
+}
+.message a {
+  float: right;
+  color: #175199;
+  height: 40px;
+  line-height: 40px;
+}
+.message a:hover{
+  color: #77839c;
+}
+.msm {
+  line-height: 40px;
+}
+.msm a{
+  float: right;
+  color: #77839c;
+}
+.btn {
+  width: 100%;
+  height: 36px;
+  margin-top: 16px;
+  background-color: #0084ff;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+}
+.btn:hover {
+  border-color: #0077e6;
+  background-color: #0077e6;
+}
+.register-footer{
+  line-height: 40px;
+  font-size: 14px;
+}
+.register-footer span,.register-footer span a{
+  color: #8590a6;
+}
+.register-footer span a:hover{
+  color: gray;
+}
+.register-footer .org {
+  float: right;
+  color: #175199;
+}
+/* 切换开关 */
+.Signswitch {
+  width: 100%;
+  height: 56px;
+  line-height: 56px;
+  background-color: #f6f6f6;
+  text-align: center;
+}
+.Signswitch span {
+  margin-left: 8px;
+  color: #175199;
+  cursor: pointer;
+}
+/*login部分  */
+.login {
+  display: none;
+}
+.tele,.psw{
+  border-bottom: 1px solid #ebebeb;
+}
+.tele {
+  margin-top: 16px;
+}
+.loginContent input{
+    height: 48px;
+    border: none;
+    line-height: 24px;
+    width: 100%;
+    font-size: 14px;
+}
+.psw,.teleMsm {
+  margin-top: 12px;
+}
+.teleMsm {
+  height: 20px;
+}
+.teleMsm-left,.teleMsm-right {
+
+}
+.teleMsm-left {
+  float: left;
+}
+.teleMsm-left a{
+  color: #175199;
+  font-size: 14px;
+}
+.teleMsm-left a:hover{
+  color: #77839c;
+}
+.teleMsm-right {
+  float: right;
+}
+.teleMsm-right a{
+  color: #8590a6;
+  font-size: 14px;
+}
+.teleMsm-right a:hover{
+  color: gray;
+}
+.login-footer{
+  margin-top: 16px;
+  text-align: center;
+  line-height: 25px;
+}
+.login-footer a{
+  font-size: 14px;
+}
+.login-footer span{
+  display: inline-block;
+  width: 4%;
+  color: #8590a6;
+  text-align: center;
+  box-sizing: border-box;
+}
+.login-footer a,.login-footer span{
+  color: #8590a6;
+}
+
+/* 下载按钮 */
+.download {
+  display: block;
+  width: 432px;
+  height: 45px;
+  background-color: #8590a6;
+  margin: 30px auto 20px;
+  border: 0;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+}
+/* footer部分 */
+.footer div{
+  text-align: center;
+  padding: 5px 0;
+}
+.footer div,.footer div a{
+  color: #fff;
+  font-size: 12px;
+}
+.footer div a{
+  text-decoration: none;
+}
+.footer div a:hover{
+  text-decoration: underline;
+}
+.footer div span::after,.footer div a::after{
+  content: "\B7";
+  white-space: pre;
+  display: inline-block;
+  padding: 0 2px;
+}
+.footer .last::after{
+  content: '';
+}
+.footer .integrity {
+  width: 420px;
+  border-top: 1px solid #ebebeb;
+  margin: 10px auto;
+  padding-top: 10px;
+}
+.footer .integrity div{
+  position: relative;
+  display: inline-block;
+}
+.footer .integrity div img{
+  position: absolute;
+  width: 138px;
+  height: 26px;
+  z-index: -1;
+  left: -34px;
+  top: 0;
+}
+.
