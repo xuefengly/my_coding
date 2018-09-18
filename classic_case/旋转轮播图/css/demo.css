@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+img {
+  border: 0;
+  vertical-align: top;
+}
+.box {
+  width: 1000px;
+  margin: 100px auto;
+}
+.box li img {
+  width: 100%;
+}
+.slide {
+  height: 450px;
+  position: relative;
+}
+.slide li {
+  position: absolute;
+  left: 300px;
+  top: 0;
+}
+.arrow {
+  opacity: 0;
+  position: relative;
+  z-index: 100;
+}
+.prev,.next {
+  width: 70px;
+  height: 80px;
+  position: absolute;
+  top: 220px;
+  z-index: 99;
+  font-size: 60px;
+  line-height: 80px;
+  text-align: center;
+  color: #25d610;
+
+}
+.prev {
+  left: 200px;
+}
+.next {
+  right: 200px;
+}
