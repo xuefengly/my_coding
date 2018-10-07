@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>懒加载插件</title>
+	<style>
+		div {
+			height: 2000px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<img data-original="img/1.jpg" alt="" height="400px" width="1000px" class="lazy"><br/>
+	<img data-original="img/2.jpg" alt="" height="400px" width="1000px" class="lazy"><br/>
+	<img data-original="img/3.jpg" alt="" height="400px" width="1000px" class="lazy"><br/>
+	<img data-original="img/4.jpg" alt="" height="400px" width="1000px" class="lazy">
+</body>
+<!-- 第一步：引入jq,lazyload
+第二步：写img
+第三步：lazyload()方法 -->
+<script src="../jquery-1.11.1.js" type="text/javascript">
+</script>
+<script src="jquery.lazyload.js" type="text/javascript">
+</script>
+<script>
+	$('.lazy').lazyload();
+</script>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>节点操作</title>
+	<script type="text/javascript" src="../jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+        	//内部插入
+            //追加节点
+            //法1
+            $("button").eq(0).click(function(){
+            	$(".box").append("<p>我是box内部创建的p1</p>");
+            });
+            //法2
+            $("button").eq(1).click(function(){
+            	$("<p>我是box内部创建的p2</p>").appendTo($(".box"));
+            });
+            //往前面添加节点
+            $("button").eq(2).click(function(){
+            	$(".box").prepend("<p>我是box内部创建的p3</p>");
+            });
+            $("button").eq(3).click(function(){
+            	$("<p>我是box内部创建的p4</p>").prependTo($(".box"));
+            });
+
+            //外部插入
+            $("button").eq(4).click(function(){
+            	$(".box").after("<p>我是box后的p1</p>");
+            });
+            $("button").eq(5).click(function(){
+            	$(".box").before("<p>我是div前的p1</p>");
+            });
+            $("button").eq(6).click(function(){
+            	$("<p>我是insertBefore</p>").insertBefore($('.box'));
+            });
+            $("button").eq(7).click(function(){
+            	$("<p>我是insertAfter</p>").insertAfter($('.box'));
+            });
+
+            //删除节点
+            $("button").eq(8).click(function(){
+            	$("h1").remove();
+            	//删除，可以“自杀”
+            	//$(this).remove();
+            });
+            $("button").eq(9).click(function(){
+            	$(".box").empty();//清空box盒子
+            	$(".box").html("");//等同上条代码
+            });
+
+            //复制节点
+            //参数为true会把绑定的事件也复制，默认为false
+            $("button").eq(10).click(function(){
+            	$("h1").append($("span").clone());
+            	//克隆span到h1
+            });
+
+            //包裹元素
+            //单个包裹
+            $("button").eq(11).click(function(){
+            	//把span2包裹在h3中
+            	$("span").eq(1).wrap($("<h3></h3>"));
+            });
+            //包裹所有
+            $("button").eq(12).click(function(){
+            	//把span2包裹在h3中
+            	$("span").wrapAll($("<h3></h3>"));
+            });
+
+            //替换元素
+            $("button").eq(13).click(function(){
+            	$("span").replaceWith($("<b>Hello World.</b>"))
+            })
+        })
+    </script>
+</head>
+<body>
+	<button>append追加节点</button>
+	<button>appendTo追加节点</button>
+	<button>prepend容器内最前追加节点</button>
+	<button>prependTo向最前追加节点</button>
+	<button>after向容器后追加元素</button>
+	<button>before向容器前追加元素</button>
+	<button>insertBefore</button>
+	<button>insertAfter</button>
+	<button>remove</button>
+	<button>empty</button>
+	<button>clone</button>
+	<button>wrap包裹元素</button>
+	<button>wrapAll包裹元素</button>
+	<button>replaceWith替换</button>
+	<div class="box">
+		<h1>我是h1标题 </h1>
+	</div>
+	<span>我是span</span>
+	<span>我是span2</span>
+</body>
+</html>

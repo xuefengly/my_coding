@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件对象案例</title>
+</head>
+<body>
+	<div class="box">
+		<a href="http://baidu.com">百度</a>
+	</div>
+</body>
+<script src="../jquery-1.11.1.js" type="text/javascript">
+</script>
+<script>
+ 	$(function(){
+ 		$("a").on("click",function(e){
+ 			//阻止默认行为，如a的点击跳转
+ 			e.preventDefault();
+ 			//阻止冒泡
+ 			// e.stopPropagation();
+ 			//事件类型
+ 			console.log(e.type);
+ 			console.log(e.target);
+ 			console.log(e.currentTarget);
+ 		});
+ 		//默认冒泡下，点击a会触发box盒子点击事件
+ 		$(".box").css({
+ 			"width": "400",
+ 			"height": "400",
+ 			"background-color": "teal"
+ 		}).on("click",function(e){
+ 			// alert("haha");
+ 			console.log("div触发click")
+ 			console.log(e.target);
+ 			console.log(e.currentTarget);
+ 			//如何判断点击的是div而不是a
+ 			if(e.target === this){
+ 				//点击div
+ 				console.log('点击的是div');
+ 			}
+ 			// 冒泡情况下，点击a，box同样触发click,但this指向a
+ 		});
+
+ 		$(window).click(function(e){
+ 			console.log(e.which);
+ 		}).keydown(function(e){
+ 			console.log(e.keyCode);
+ 		})
+ 	})
+</script>
+</html>

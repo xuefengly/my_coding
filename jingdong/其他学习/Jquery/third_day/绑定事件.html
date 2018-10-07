@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件</title>
+</head>
+<body>
+	<button>绑定多个事件</button>
+	<button>参数</button>
+	<div>
+		<p>我是p</p>
+		<h1>我是h1</h1>
+		<h1>我是h1</h1>
+	</div>
+	<ul>
+		<li>我是li1</li>
+		<li>我是li2</li>
+		<li>我是li3</li>
+		<li>我是li4</li>
+		<li>我是li5</li>
+		<li>我是li6</li>
+		<li>我是li7</li>
+		<li>我是li8</li>
+		<p>我是p</p>
+	</ul>
+
+</body>
+<script src="../jquery-1.11.1.js" type="text/javascript">
+</script>
+<script>
+
+ $(function(){
+ 	// 方法1
+	// $("button").eq(0).click(function(){
+	// 	alert("我是click事件");
+	// }).mouseleave(function(){
+	// 	alert("我是mouseleave事件");
+	// });
+	// 方法2,bind()
+	// $("button").eq(0).bind({
+	// 	"click":function(){
+	// 		alert("click");
+	// 	},
+	// 	"mouseleave":function(){
+	// 		alert("mouseleave");
+	// 	}
+	// });
+	
+	$("button").eq(1).bind("click","参数",function(e){
+		//第二个参数为参数内容，也可为对象，e为事件源
+		alert(e.data);
+	})
+	
+	//给多个元素绑定事件，使用事件委托
+	//给所有li绑定
+	// $("li").bind("click",function(){
+	// 	alert($(this).html());
+	// });
+	//使用事件委托，给li父元素绑定事件,对于所有的li会触发
+	// $("ul").delegate("li","click",function(){
+	// 	alert($(this).html());
+	// });
+	//on()推荐
+	//参数可以是标签，也可以使用选择器
+	$("div").on("click","h1:eq(0)",function(){
+		alert($(this).html());
+	})
+	
+	//解绑事件：
+	//bind()-->unbind()
+	//delegate()-->undelegate()
+	//on()-->off()
+	$("div").off("click");
+ });
+</script>
+</html>

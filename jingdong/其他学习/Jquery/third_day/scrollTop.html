@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>scrollTop</title>
+	<style>
+		div {
+			width: 300px;
+			height: 300px;
+			background: green;
+			overflow: scroll;
+		}
+		div p {
+			width: 2000px;
+			height: 2000px;
+		}
+	</style>
+</head>
+<body>
+	<button>获取scrollTop值</button>
+	<button>设置scrollTop和scrollLeft</button>
+	<div>
+		<p>我是内容</p>
+	</div>
+</body>
+<script type="text/javascript" src="../jquery-1.11.1.js">
+</script>
+<script>
+$(function(){
+	//获取
+	$("button").eq(0).click(function(){
+		console.log($("div").scrollTop());
+	});
+	//设置
+	var i = 0;
+	$("button").eq(1).click(function(){
+		i += 200;
+		$("div").scrollTop(i);
+		$("div").scrollLeft(i);
+	});
+});
+</script>
+</html>

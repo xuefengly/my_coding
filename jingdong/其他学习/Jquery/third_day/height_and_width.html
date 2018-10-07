@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>height&&width</title>
+</head>
+<body>
+	<button>设置高度</button>
+	<button>获取高度</button>
+	<button>设置宽度</button>
+	<button>获取宽度</button>
+	<button>对比</button>
+	<div></div>
+</body>
+<script type="text/javascript" src="../jquery-1.11.1.js">
+</script>
+<script>
+$(function(){
+	//设置背景
+	$("div").eq(0).css("background-color","pink");
+	//有参设置，无参获取
+	//设置高度
+	// $("div").css("height","300");
+	$("button").eq(0).click(function(){
+		//以下方法皆可
+		// $("div").height(300);
+		// $("div").height("300");
+		$("div").height("300px");
+	});
+	$("button").eq(1).click(function(){
+		$("div").html($("div").height());
+	});
+	$("button").eq(2).click(function(){
+		$("div").width(400);
+	});
+	$("button").eq(3).click(function(){
+		$("div").html($("div").width());
+	});
+	//对比css()和height()获取高度
+	$("button").eq(4).click(function(){
+		console.log("height():"+$("div").height()+"类型："+typeof($("div").height()));
+		console.log("css():"+$("div").css("height")+"类型："+typeof($("div").css("height")));
+	})
+
+})
+</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>stop</title>
+<script type="text/javascript" src="../jquery-1.11.1.js"></script>
+<script type="text/javascript"> 
+	$(document).ready(function(){
+	  $("#start").click(function(){
+	    $("#box").animate({height:300},2000);
+	    $("#box").animate({width:300},2000);
+	    $("#box").animate({height:100},2000);
+	    $("#box").animate({width:100},2000);
+	  });
+	  $("#stop").click(function(){
+	  	//stop()默认两参数false，立即停止当前动画，执行动画队列里的下一个动画
+	    $("#box").stop();
+	  });
+	});
+	function stop(clearQueue,gotoEnd){
+		if(!!clearQueue){
+			console.log(clearQueue);
+		}else{
+			console.log(clearQueue);
+			clearQueue = false;
+		}
+		// console.log(clearQueue);
+	}
+	console.log(!!undefined == false);
+	stop();
+</script>
+</head>
+<body>
+
+<p>
+<button id="start">Start Animation</button>
+<button id="stop">Stop Animation</button>
+</p>
+<div id="box" style="background:#98bf21;height:100px;width:100px;position:relative">
+</div>
+ 
+</body>
+</html>

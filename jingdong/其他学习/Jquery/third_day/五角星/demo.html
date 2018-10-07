@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>五角星评论案例</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		.comment {
+			color: red;
+			font-size: 36px;
+			width: 300px;
+			margin: 100px auto;
+		}
+		.comment li{
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<ul class="comment">
+		<li>☆</li>
+		<li>☆</li>
+		<li>☆</li>
+		<li>☆</li>
+		<li>☆</li>
+	</ul>
+</body>
+<script src="../../jquery-1.11.1.js" type="text/javascript">
+</script>
+<script>
+ 	$(function(){
+ 		var wjx_sel = "★",
+ 			wjx_none = "☆";
+ 		//事件委托方法
+ 		$(".comment").on("mouseenter","li",function(){
+ 			//把移动到的五角星及前面的变为实心
+ 			// $(this).text(wjx_sel).prevAll().text(wjx_sel);
+ 			// //移动到的五角星后面的变为空心
+ 			// $(this).nextAll().text(wjx_none);
+ 			//当链式编程断了，使用end()回到原始对象
+ 			$(this).text(wjx_sel).prevAll().text(wjx_sel).end().nextAll().text(wjx_none);
+ 		}).on("click","li",function(){
+ 			//记录用户点击的五角星，给点击的li添加一个样式类做标记
+ 			$(this).addClass("active").siblings().removeClass("active");
+ 		}).on("mouseleave",function(){
+ 			//没点击时，鼠标移开都为空心
+ 			$(".comment li").text(wjx_none);
+ 			// console.log($(".comment li").text());
+ 			//当鼠标离开大盒子时，把含.active及之前的li变实心，后面变空心
+ 			$(".active").text(wjx_sel).prevAll().text(wjx_sel).end().nextAll().text(wjx_none);
+ 		});
+
+ 		
+ 	});
+ 	//jQuery中默认有隐式迭代，例$(".comment li").text(wjx_none);给所有li都执行了text()，自动迭代。
+</script>
+</html>

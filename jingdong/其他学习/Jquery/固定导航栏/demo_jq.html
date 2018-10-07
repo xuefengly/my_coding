@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>固定导航栏</title>
+	<style>
+	        *{ 
+	        	margin:0;padding:0
+	        }
+	        body {
+	        	margin: 0 auto;
+	        	width: 1423px;
+	        }
+	        .top {
+	        	height: 168px;
+	        }
+	        img{
+	            vertical-align: top;
+	        }
+	        .main{
+	            margin:0 auto;
+	            width:1000px;
+	            margin-top:10px;
+ 
+	        }
+ 	 </style>
+
+</head>
+<body>
+	<div class="top" id="top">
+	    <img src="images/top.png" alt=""/>
+	</div>
+	<div class="nav" id="Q_nav">
+	    <img src="images/nav.png" alt=""/>
+	</div>
+	<div class="main">
+	    <img src="images/main.png" alt=""/>
+	</div>
+</body>
+<script src="jquery-1.11.1.js"></script>
+<!-- 注意：防止页面渲染问题,把js导入放body后面 -->
+<script>
+	$(function(){
+		var topH = $("#top").height();
+		console.log(topH);
+		//对window触发srcoll事件
+		$(window).scroll(function(){
+			var docH = $(document).scrollTop();
+			console.log(docH);
+			if(docH >= topH){
+				$(".nav").css({
+					"position":"fixed",
+					"top": 0
+				});
+				$("main").css("margin-top",$(".nav").height());
+			}else{
+				$(".nav").css("position","static");
+			}
+		});
+
+	});
+</script>
+</html>
+

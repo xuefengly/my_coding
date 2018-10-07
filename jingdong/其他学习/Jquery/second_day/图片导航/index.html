@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        ul{list-style: none;}
+        img{display: block; border:0;}
+        .wrapper{width: 752px;  border:1px solid #ccc;
+            padding: 10px 0 0 10px;
+            font-family: arial;
+            overflow: hidden;
+            margin:100px auto;
+
+        }
+        .wrapper li{
+            float: left;
+            margin:0 10px 10px 0;
+            width: 178px;
+            height: 125px;
+            overflow: hidden;
+            position: relative;
+        }
+        .wrapper li div,.wrapper li p{
+            width:178px;
+            height: 25px;
+            position: absolute;
+            font-size:14px;
+            text-align: center;
+            line-height: 25px;
+            color:white;
+            left:0;
+            bottom:-25px;
+            _bottom:-26px;
+        }
+        .wrapper li div{
+            background-color:#000;
+        }
+        .wrapper li p{
+            background: url(images/bg.png) no-repeat 5px 0;
+        }
+
+    </style>
+    <script type="text/javascript" src="../../jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".wrapper li")
+                 .append("<div></div><p>全栈，你值得拥有</p>")//添加元素
+                 .children("div")//选择div
+                 .fadeTo(1000,0.5)//透明度
+                 .next("p")//下一个元素，即p元素
+                 .each(function(index,ele){
+                    //遍历所有的p,index为序号，ele为p元素(dom对象)
+                    console.log(index,ele,this);
+                    console.log(ele == this);//true
+                    console.log($(ele) == $(this));//false,因为新创建了两个jquery对象，内存地址不同
+                    $(ele).css("background-position","5px -"+(index*25)+"px");//显示对应小图标
+                 })
+                 .parent()//选择p元素的父亲，即li
+                 .mouseenter(function(){
+                    $(this).children().stop().animate({
+                        "bottom":0
+                    },200);
+                 }).mouseleave(function(){
+                    $(this).children().stop().animate({
+                        "bottom": "-25px"
+                    },200);
+                 })
+        })
+       
+
+
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <ul>
+        <li><a href="###"><img src="images/01.jpg" alt=""/></a></li>
+        <li><a href="###"><img src="images/02.jpg" alt=""/></a></li>
+        <li><a href="###"><img src="images/03.jpg" alt=""/></a></li>
+        <li><a href="###"><img src="images/04.jpg" alt=""/></a></li>
+        <li><a href="###"><img src="images/05.jpg" alt=""/></a></li>
+        <li><a href="###"><img src="images/06.jpg" alt=""/></a></li>
+        <li><a href="###"><img src="images/07.jpg" alt=""/></a></li>
+        <li><a href="###"><img src="images/08.jpg" alt=""/></a></li>
+    </ul>
+</div>
+</body>
+</html>

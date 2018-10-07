@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQueryUI插件</title>
+	<link rel="stylesheet" type="text/css" href="jQueryUI/jquery-ui.min.css">
+</head>
+<body>
+	<div class="tab">
+		<ul>
+			<li><a href="#tab1">页签1</a></li>
+			<li><a href="#tab2">页签2</a></li>
+			<li><a href="#tab3">页签3</a></li>
+		</ul>
+		<div id="tab1">111</div>
+		<div id="tab2">222</div>
+		<div id="tab3">333</div>
+	</div>
+	<div class="dialog" title="标题">对话框</div>
+</body>
+<!-- 第一步：引入jQuery
+	第二步：引入jQueryUI
+	第三步：引入jQueryUI的css样式
+	第四步：仿照例子写 -->
+<script src="../jquery-1.11.1.js" type="text/javascript">
+</script>
+<script src="jQueryUI/jquery-ui.min.js" type="text/javascript">
+</script>
+<script>
+	$(".tab").tabs();
+	$(".dialog").dialog();
+</script>
+</html>

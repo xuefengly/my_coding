@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>背景色渐变插件</title>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+<!-- 第一步：引入jquery
+	第二步：引入背景色渐变插件
+	第三步：用第三方插件实现效果 -->
+<script src="../jquery-1.11.1.js" type="text/javascript">
+</script>
+<script src="jquery.color.js" type="text/javascript">
+</script>
+<script>
+	$(".box").css({
+		"width": "400px",
+		"height": "400px"
+	});
+	//默认的animate（）不能改变背景色
+	$(".box").animate({
+		"background-color": "red"
+	},3000);//三秒钟渐变成红色
+</script>
+
+</html>
