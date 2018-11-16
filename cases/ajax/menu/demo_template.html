@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>菜谱</title>
+  <style media="screen">
+    .box {
+    width: 500px;
+    margin: 40px auto;
+  }
+    .all {
+    margin-top: 30px;
+  }
+  .xh {
+    float: left;
+    margin-right: 20px;
+    color: red;
+    font-style: italic;
+    font-size: 30px;
+  }
+  #menu {
+    width: 500px;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <input type="text" id="txt" placeholder="请输入菜名" />
+    <input type="button" value="search" id="btn" />
+    <div id="menu">
+    </div>
+  </div>
+
+</body>
+<!-- 模板 -->
+<script type="text/html" id="tpl">
+  <% for(var i=0;i< data.length;i++) {%>
+  <div class="all">
+      <h2>菜名：<%= data[i].title %></h2>
+      <p class="intro">简介:<%= data[i].imtro %></p>
+      <% for(var j=0;j< data[i].albums.length;j++) {%>
+        <img src=""<%= data[i].albums[j] %>"">
+      <% } %>
+      <p class="zl">主料：<%= data[i].ingredients %></p>
+      <p class="fl">辅料：<%= data[i].burden %></p>
+      <% for(var k=0;k< data[i].steps.length;k++) {%>
+        <div class="steps">
+            <p><%= data[i].steps[k].step %></p>
+            <p><img src="<%= data[i].steps[k].img %>"></p>
+        </div>
+      <% } %>
+  </div>
+  <% } %>
+</script>
+<script src="jquery-1.11.2.js">
+</script>
+<script src="template-native-debug.js">
+</script>
+<script type="text/javascript">
+  $(function() {
+    $("#btn").click(function() {
+      var txt = $("#txt").val();
+      var menu = $("#menu");
+      menu.text("正在加载...")
+      $.ajax({
+        type: 'get',
+        url: 'http://apis.juhe.cn/cook/query?key=035ab7995ec39cc741917e094142333e&rn=5&pn=3&menu=' + txt,
+        dataType: 'jsonp',
+        async: true,
+        success: function(data) {
+          //清空容器
+          menu.text('');
+          if (data.result == null) {
+            menu.text("抱歉，查询无结果");
+            return;
+          }
+          //调用模板
+          var temp = template('tpl', data.result);
+          menu.html(temp);
+        },
+        error: function() {
+          alert("失败");
+        }
+      });
+    });
+  });
+</script>
+
+
+</html>

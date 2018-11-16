@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>菜谱</title>
+  <style media="screen">
+    .box {
+    width: 500px;
+    margin: 40px auto;
+  }
+    .all {
+    margin-top: 30px;
+  }
+  .xh {
+    float: left;
+    margin-right: 20px;
+    color: red;
+    font-style: italic;
+    font-size: 30px;
+  }
+  #menu {
+    width: 500px;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <input type="text" id="txt" placeholder="请输入菜名" />
+    <input type="button" value="search" id="btn" />
+    <div id="menu">
+    </div>
+  </div>
+
+</body>
+<script src="jquery-1.11.2.js">
+</script>
+<script type="text/javascript">
+  $(function() {
+    $("#btn").click(function() {
+      var txt = $("#txt").val();
+      var menu = $("#menu");
+      menu.text("正在加载...")
+      $.ajax({
+        type: 'get',
+        url: 'http://apis.juhe.cn/cook/query?key=035ab7995ec39cc741917e094142333e&rn=5&pn=3&menu=' + txt,
+        dataType: 'jsonp',
+        async: true,
+        success: function(data) {
+          menu.text('');
+          if (data.result == null) {
+            menu.text("抱歉，查询无结果");
+            return;
+          }
+          var return_data = data.result.data;
+          //动态创建菜谱
+          $.each(return_data, function(i, ele) {
+            // ele指向每道菜的数据对象
+            var all = $('<div class="all"></div>');
+            menu.append(all);
+            //名称
+            var title = $('<h2>' + (i + 1) + '. 菜名:</h2>');
+            title.append(ele.title);
+            all.append(title);
+            //简介
+            var intro = $('<p class="intro">简介：</p>');
+            intro.append(ele.imtro);
+            all.append(intro);
+            //成品图
+            $.each(ele.albums, function(j, pics) {
+              var pic = $('<img src="' + pics + '">');
+              all.append(pic);
+            });
+            //主料
+            var zl = $('<p class="zl">主料：</p>');
+            zl.append(ele.ingredients);
+            all.append(zl);
+            //辅料
+            var fl = $('<p class="fl">辅料：</p>');
+            fl.append(ele.burden);
+            all.append(fl);
+            //做菜步骤
+            var steps = $('<div class="steps">开始吧：</div>');
+            all.append(steps);
+            //遍历步骤并动态添加
+            $.each(ele.steps, function(k, step) {
+              //step为每步的数据（包含文字和图片）
+              var step_text = $('<p></p>');
+              step_text.append(step.step);
+              steps.append(step_text);
+              var step_pic = $('<p><img src="' + step.img + '"></p>');
+              steps.append(step_pic);
+            });
+          });
+        },
+        error: function() {
+          alert("失败");
+        }
+      });
+    });
+  });
+</script>
+
+</html>
